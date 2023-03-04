@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'public/css/fonts.css';
+
+* {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  color: rgb(0, 0, 0);
+}
+
+.bg-gradient {
+  background: {
+    image: radial-gradient(circle at center, rgb(245, 244, 244) 0, rgb(214, 213, 211) 100%)
+  }
+}
+
+.bg-dotted {
+  background: {
+    image: radial-gradient(rgba(1, 1, 1, 0.8) 8%,
+        transparent 8%,
+      );
+    size: 5vmin 5vmin;
+  }
+
+  z-index: 5;
+  position: absolute;
+}
+
+.text-outline{
+  color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+}
+
+.box {
+  background: #000;
+  width: 1vw;
+  height: 1vw;
+}
+
+.top {
+  position: absolute;
+  top: 0;
+}
