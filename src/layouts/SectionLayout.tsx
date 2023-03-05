@@ -1,17 +1,31 @@
 import type { PropsWithChildren } from 'react'
 import React from 'react'
+import DesktopNavbar from '@/components/DesktopNavbar'
 
-interface Props {}
+interface Props {
+  decoration?: JSX.Element
+}
 
-const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
+const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children, decoration }) => {
   return (
-    <section className='relative h-screen w-screen flex items-center justify-center px-52'>
-      <div className='absolute uppercase tracking-tighter -top-5 -right-[20vw] text-[15vw] text-outline'>introduction</div>
-      <div className='border border-gray-500 relative h-[calc(100%-300px)] z-20 px-8 py-8 bg-white/60'>
-        {children}
-        <div className='box top'></div>
+    <section className='relative h-screen w-screen flex items-center justify-center px-52 snap-start'>
+      <div className='text-background'>introduction</div>
+      <div className='relative h-[calc(100%-300px)] z-20 bg-white/90 flex'>
+        <DesktopNavbar></DesktopNavbar>
+        <h2 className='section-header'>Introduction</h2>
+        <div className='section-container'>
+          {children}
+        </div>
+        <div className='box--top-right'></div>
+        <div className='box--bot-left'></div>
+        <div className='box--bot-right'></div>
       </div>
-      <div className='bg-dotted h-64 w-64 absolute bottom-10 right-5'></div>
+      {decoration && decoration}
+      <div className='absolute left-6 bottom-6 flex gap-5'>
+        <div className='rounded-full bg-[rgb(34,255,254)] w-5 h-5'></div>
+        <div className='rounded-full bg-[rgb(253,35,249)] w-5 h-5'></div>
+        <div className='rounded-full bg-[rgb(255,253,64)] w-5 h-5'></div>
+      </div>
     </section>
   )
 }

@@ -1,0 +1,78 @@
+.menu-button-wrap {
+  @apply fixed top-5 left-5 z-40 border border-black bg-white/80;
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  .menu-button {
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    border: none;
+    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transform: rotate(90deg);
+
+    span {
+
+      &::after,
+      &::before {
+        content: '';
+        width: 1px;
+        height: 48px;
+        position: absolute;
+        background-color: #111;
+        left: 50%;
+        top: 50%;
+        display: block;
+
+        will-change: transform;
+        transition: all 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+      }
+
+      &::before {
+        width: 3px;
+        transform: translate(-8px, -50%) scale(0.7) rotate(180deg);
+      }
+
+      &::after {
+        transform: translate(8px, -50%) scale(0.7) rotate(0);
+      }
+
+    }
+
+    &.open {
+      transform: translateX(24px) rotate(90deg);
+      transition-delay: 0.2s;
+
+      span {
+        &::before {
+          width: 1px;
+          transform: rotate(315deg);
+        }
+
+        &::after {
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+}
+
+.navbar {
+  @apply flex flex-col overflow-hidden bg-white/10 py-10 w-full h-full justify-center items-center filter backdrop-blur-sm fixed z-30;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+  &.open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  >a {
+    @apply py-10 px-5 w-full block text-center text-xl bg-white/50;
+    transition: all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    &:hover {
+      @apply bg-white/80;
+    }
+  }
+}

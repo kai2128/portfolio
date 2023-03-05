@@ -3,13 +3,22 @@ import SectionLayout from '@/layouts/SectionLayout'
 
 interface Props {}
 
+function RoleCard() {
+  return (
+    <div>
+      # name
+    </div>
+  )
+}
+
 const About = (props: Props) => {
   return (
-    <SectionLayout>
-      <h2 className='uppercase text-2xl bg-black text-white px-10 py-1 absolute -top-5 w-1/2'>Introduction</h2>
-      <p>About Me</p>
+    <SectionLayout
+      decoration={(<div className='bg-dotted h-64 w-64 absolute bottom-10 right-5'></div>)}
+    >
+      <p className='section-subheading'>About Me</p>
 
-      <p>
+      <p className='section-body'>
         {/* about.content */}
         I'm a skilled software developer with experience in TypeScript and
         JavaScript, and expertise in frameworks like React, Node.js, and

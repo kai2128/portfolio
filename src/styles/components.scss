@@ -1,0 +1,76 @@
+.navbar-desktop {
+  @apply hidden md:flex flex-col gap-2;
+
+  >a {
+    @apply flex bg-white/70 items-center justify-center h-24 w-24 underline decoration-dashed underline-offset-2 decoration-slate-300/80 text-gray-400/80 relative;
+    transition: background-color, color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &:hover {
+      @apply bg-white text-black;
+    }
+
+    &:after {
+      content: '';
+      @apply w-2 h-8 bg-black absolute left-0 scale-y-0;
+      transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }
+
+  .active {
+    @apply bg-white text-black;
+
+    &:after {
+      @apply scale-y-100;
+    }
+
+
+  }
+}
+
+.section-header {
+  @apply uppercase text-2xl bg-black text-white px-10 py-1 absolute -top-5 w-1/2 min-w-min font-geometos z-30;
+
+  &:before {
+    content: '#';
+    position: absolute;
+    left: 0.9rem;
+    color: rgba(150, 150, 150, .6);
+    font-size: 2rem;
+  }
+
+  &:after {
+    content: '';
+    border: 1px solid black;
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    transform: translate(200%, -50%);
+  }
+}
+
+.section-subheading {
+  @apply text-xl relative mb-4;
+
+  &:before {
+    content: '';
+    height: 100%;
+    width: 0.6rem;
+    background: black;
+    position: absolute;
+    left: -1rem;
+  }
+}
+
+.section-container {
+  @apply overflow-y-auto overflow-x-hidden scrollbar-thin scrollbar-track-slate-300/30 scrollbar-thumb-slate-800/10 px-8 py-8;
+  transition: 0.5s cubic-bezier(.19, .8, .49, .99);
+
+  &:hover {
+    @apply scrollbar-thumb-slate-800/30;
+  }
+}
+
+.section-body {
+  @apply text-justify;
+}

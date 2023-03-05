@@ -1,5 +1,7 @@
 import Head from 'next/head'
 import About from '@/components/About'
+import Navbar from '@/components/Navbar'
+import Hero from '@/components/Hero'
 
 export default function Home() {
   return (
@@ -10,12 +12,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='w-screen h-screen overflow-hidden bg-gradient'>
-        <header className='fixed'>header</header>
+      <main className='w-screen h-screen overflow-y-auto overflow-x-hidden bg-gradient snap-y snap-mandatory'>
+        <header>
+          <Navbar></Navbar>
+        </header>
 
-        {/* <section className='text' onClick={() => {}}>
-          Hero
-        </section> */}
+        <Hero></Hero>
 
         <About></About>
 
