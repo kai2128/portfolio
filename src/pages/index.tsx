@@ -1,9 +1,12 @@
 import Head from 'next/head'
-import About from '@/components/About'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import SectionLayout from '@/layouts/SectionLayout'
+import { useSectionStore } from '@/stores/section'
 
 export default function Home() {
+  const { CurrentSection } = useSectionStore(true)
+
   return (
     <>
       <Head>
@@ -19,7 +22,11 @@ export default function Home() {
 
         <Hero></Hero>
 
-        <About></About>
+        <SectionLayout>
+          <CurrentSection></CurrentSection>
+        </SectionLayout>
+
+        {/* <About></About> */}
 
         {/* <section>
           About me

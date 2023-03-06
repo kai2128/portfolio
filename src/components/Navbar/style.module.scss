@@ -1,5 +1,5 @@
 .menu-button-wrap {
-  @apply fixed top-5 left-5 z-40 border border-black bg-white/80;
+  @apply scale-100 top-2 left-2 md:scale-125 fixed md:top-8 md:left-8 z-40 bg-white p-1 cursor-pointer;
   transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   .menu-button {
@@ -15,7 +15,7 @@
       &::after,
       &::before {
         content: '';
-        width: 1px;
+        width: 0.8px;
         height: 48px;
         position: absolute;
         background-color: #111;
@@ -28,7 +28,7 @@
       }
 
       &::before {
-        width: 3px;
+        width: 2px;
         transform: translate(-8px, -50%) scale(0.7) rotate(180deg);
       }
 
@@ -44,8 +44,8 @@
 
       span {
         &::before {
-          width: 1px;
-          transform: rotate(315deg);
+          width: 0.8px;
+          transform: rotate(-45deg);
         }
 
         &::after {
@@ -68,7 +68,7 @@
   }
 
   >a {
-    @apply py-10 px-5 w-full block text-center text-xl bg-white/50;
+    @apply py-5 px-5 w-full block text-center text-xl bg-white/50;
     transition: all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 
     &:hover {

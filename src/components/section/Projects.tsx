@@ -1,22 +1,11 @@
 import React from 'react'
-import SectionLayout from '@/layouts/SectionLayout'
 
 interface Props {}
 
-function RoleCard() {
+const Projects = (props: Props) => {
   return (
-    <div>
-      # name
-    </div>
-  )
-}
-
-const About = (props: Props) => {
-  return (
-    <SectionLayout
-      decoration={(<div className='bg-dotted h-64 w-64 absolute bottom-10 right-5'></div>)}
-    >
-      <p className='section-subheading'>About Me</p>
+    <>
+      <p className='section-subheading'>Projects</p>
 
       <p className='section-body'>
         {/* about.content */}
@@ -30,8 +19,8 @@ const About = (props: Props) => {
       <div>
         Role...
       </div>
-    </SectionLayout>
+    </>
   )
 }
 
-export default About
+export default Projects

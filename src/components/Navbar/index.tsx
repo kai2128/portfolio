@@ -10,8 +10,8 @@ const Navbar = (props: Props) => {
 
   return (
     <>
-    <div className={style['menu-button-wrap']}>
-        <button className={clsx(style['menu-button'], isOpen && style.open)} onClick={() => toggleOpen(!isOpen)}>
+    <div className={style['menu-button-wrap']} onClick={() => toggleOpen(!isOpen)}>
+        <button className={clsx(style['menu-button'], isOpen && style.open)}>
         <span></span>
       </button>
     </div>

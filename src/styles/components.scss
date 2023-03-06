@@ -2,7 +2,7 @@
   @apply hidden md:flex flex-col gap-2;
 
   >a {
-    @apply flex bg-white/70 items-center justify-center h-24 w-24 underline decoration-dashed underline-offset-2 decoration-slate-300/80 text-gray-400/80 relative;
+    @apply capitalize flex bg-white/70 items-center justify-center h-24 w-24 underline decoration-dashed underline-offset-2 decoration-slate-300/80 text-gray-400/80 relative;
     transition: background-color, color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 
     &:hover {
@@ -22,8 +22,6 @@
     &:after {
       @apply scale-y-100;
     }
-
-
   }
 }
 

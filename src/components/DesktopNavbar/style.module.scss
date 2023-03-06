@@ -1,0 +1,30 @@
+.nav {
+  @apply absolute -left-16 top-1/2 -translate-x-1/2 -translate-y-1/2;
+
+  .navbar-desktop {
+    @apply hidden md:flex flex-col gap-2;
+
+    >a {
+      @apply capitalize flex bg-white/70 items-center justify-center h-24 w-24 underline decoration-dashed underline-offset-2 decoration-slate-300/80 text-gray-400/80 relative;
+      transition: background-color, color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+
+      &:hover {
+        @apply bg-white text-black;
+      }
+
+      &:after {
+        content: '';
+        @apply w-2 h-8 bg-black absolute left-0 scale-y-0;
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+    }
+
+    .active {
+      @apply bg-white text-black;
+
+      &:after {
+        @apply scale-y-100;
+      }
+    }
+  }
+}
