@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import 'public/css/fonts.css';
-@import './components.scss';
+@import './section.scss';
 
 * {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -14,7 +14,15 @@
 :root {
   --primary-color: rgb(0, 0, 0);
   --secondary-color: rgb(174, 180, 189);
-  --background-color: rgb(255,255,255);
+  --background-color: rgb(255, 255, 255);
+}
+
+.link {
+  @apply underline decoration-dashed underline-offset-2 decoration-slate-300/80;
+
+  &:hover {
+    @apply bg-background text-primary;
+  }
 }
 
 .bg-gradient {
@@ -43,7 +51,7 @@
 }
 
 .text-background {
-  @apply absolute uppercase tracking-tighter -top-[8vw] -right-[30vw] text-[clamp(150px,15vw,15vw)] text-outline font-geometos;
+  @apply absolute uppercase tracking-tighter top-0 right-0 -translate-y-1/2 w-full text-right text-[clamp(150px,15vw,15vw)] text-outline font-geometos;
 }
 
 .box {

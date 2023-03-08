@@ -1,16 +1,20 @@
 import Link from 'next/link'
-import React from 'react'
+import React, { useRef } from 'react'
 import clsx from 'clsx'
 import style from './style.module.scss'
 import type { ValidSection } from '@/stores/section'
 import { useSectionStore } from '@/stores/section'
+import { useRandomTextHover } from '@/hooks/randomTextHover'
 
 interface Props { }
 
 function NavbarLink({ name }: { name: ValidSection }) {
   const { switchSection, active } = useSectionStore()
+  const el = useRef<HTMLAnchorElement>(null)
+  useRandomTextHover(el)
+
   return (
-    <Link href={name} onClick={() => switchSection(name)} className={clsx(active === name && style.active)}>
+    <Link ref={el} href={name} onClick={() => switchSection(name)} className={clsx(active === name && style.active)}>
       {name.substring(1)}
     </Link>
   )

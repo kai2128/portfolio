@@ -1,13 +1,14 @@
+import { useEffect } from 'react'
 import { atom } from 'nanostores'
 import { useStore } from '@nanostores/react'
 import { useRouter } from 'next/router'
-import { useEffect } from 'react'
+
 import { About, Contact, Projects, Skills } from '@/components/section'
 
-// interface AppState {
+// interface SectionState {
 //   currentSection: (props: any) => JSX.Element
 // }
-const validPath = ['#about', '#contact', '#projects', '#skills'] as const
+const validPath = ['#about', '#skills', '#projects', '#contact'] as const
 const sections = {
   '#about': About,
   '#contact': Contact,
@@ -32,19 +33,36 @@ function switchSection(sectionName: ValidSection) {
   sectionStore.set(sections[sectionName])
 }
 
+function nextSection() {
+  const currentSection = currentActive.get()
+  let nextSection = validPath[validPath.indexOf(currentSection) + 1]
+  if (nextSection === undefined)
+    nextSection = validPath[0]
+  switchSection(nextSection)
+}
+
+function triggerEntrance() {
+  const currentSection = currentActive.get()
+  nextSection()
+  setTimeout(() => switchSection(currentSection))
+}
+
 export function useSectionStore(shouldInit?: boolean) {
   const route = useRouter()
   const currentSectionName = route.asPath.substring(1)
-  if (shouldInit) {
-    useEffect(() => {
+
+  useEffect(() => {
+    if (shouldInit)
       toSection(currentSectionName as ValidSection)
-    }, [])
-  }
+  }, [])
 
   return {
     CurrentSection: useStore(sectionStore),
     active: useStore(currentActive),
+    sectionTitle: useStore(currentActive).substring(1),
     toSection,
     switchSection,
+    nextSection,
+    triggerEntrance,
   }
 }

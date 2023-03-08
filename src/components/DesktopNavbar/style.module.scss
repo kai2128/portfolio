@@ -1,20 +1,38 @@
 .nav {
-  @apply absolute -left-16 top-1/2 -translate-x-1/2 -translate-y-1/2;
+  @apply absolute left-20 top-1/2 -translate-y-1/2;
 
   .navbar-desktop {
     @apply hidden md:flex flex-col gap-2;
 
     >a {
-      @apply capitalize flex bg-white/70 items-center justify-center h-24 w-24 underline decoration-dashed underline-offset-2 decoration-slate-300/80 text-gray-400/80 relative;
+      @apply uppercase flex bg-white/70 items-center justify-center px-2 h-24 w-24 text-gray-400/80 relative;
       transition: background-color, color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 
       &:hover {
-        @apply bg-white text-black;
+        @apply bg-background text-primary;
       }
 
       &:after {
         content: '';
-        @apply w-2 h-8 bg-black absolute left-0 scale-y-0;
+        @apply absolute left-1 top-1;
+        @apply scale-0 origin-top-left;
+        aspect-ratio: 3/5;
+        border: {
+          width: 1rem 1rem 0 0;
+          color: var(--primary-color) transparent transparent transparent;
+        }
+        transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      }
+
+      &:before {
+        content: '';
+        @apply absolute bottom-1 right-1 w-5;
+        @apply scale-0;
+        aspect-ratio: 1;
+        border: {
+          right: 1px solid var(--primary-color);
+          bottom: 1px solid var(--primary-color);
+        }
         transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
       }
     }
@@ -23,7 +41,10 @@
       @apply bg-white text-black;
 
       &:after {
-        @apply scale-y-100;
+        @apply scale-100;
+      }
+      &:before{
+        @apply scale-100;
       }
     }
   }
