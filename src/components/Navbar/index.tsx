@@ -8,14 +8,20 @@ import { useRandomTextHover } from '@/hooks/randomTextHover'
 
 interface Props { }
 
-function NavbarLink({ name }: { name: ValidSection }) {
+function NavbarLink({ name, toggleOpen }: { name: ValidSection; toggleOpen: React.Dispatch<React.SetStateAction<Boolean | undefined>> }) {
   const { switchSection, active } = useSectionStore()
   const el = useRef<HTMLAnchorElement>(null)
   useRandomTextHover(el, name.substring(1))
+  const nameId = name.substring(1)
+  function handleNavigationClick() {
+    toggleOpen(false)
+    switchSection(name)
+    document.getElementById('section')?.scrollIntoView({ block: 'end' })
+  }
 
   return (
-    <Link ref={el} href={name} onClick={() => switchSection(name)} className={clsx(active === name && style.active)}>
-      {name.substring(1)}
+    <Link ref={el} href={name} onClick={() => handleNavigationClick()} className={clsx(active === name && style.active)}>
+      nameId
     </Link>
   )
 }
@@ -31,10 +37,10 @@ const Navbar = (props: Props) => {
         </button>
       </div>
       <nav className={clsx(style.navbar, isOpen && style.open)} onClick={() => toggleOpen(!isOpen)}>
-        <NavbarLink name='#about'></NavbarLink>
-        <NavbarLink name='#skills'></NavbarLink>
-        <NavbarLink name='#projects'></NavbarLink>
-        <NavbarLink name='#contact'></NavbarLink>
+        <NavbarLink toggleOpen={toggleOpen} name='#about'></NavbarLink>
+        <NavbarLink toggleOpen={toggleOpen} name='#skills'></NavbarLink>
+        <NavbarLink toggleOpen={toggleOpen} name='#projects'></NavbarLink>
+        <NavbarLink toggleOpen={toggleOpen} name='#contact'></NavbarLink>
       </nav>
     </>
   )

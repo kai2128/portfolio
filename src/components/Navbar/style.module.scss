@@ -57,7 +57,7 @@
 }
 
 .navbar {
-  @apply flex flex-col overflow-hidden bg-white/10 py-10 w-full h-full justify-center items-center filter backdrop-blur-sm fixed z-30 backdrop-brightness-75;
+  @apply flex flex-col overflow-hidden bg-white/10 py-10 w-full h-full justify-center items-center filter backdrop-blur-sm fixed z-40 backdrop-brightness-75;
   opacity: 0;
   visibility: hidden;
   transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);

@@ -74,7 +74,7 @@
 }
 
 .section-navigation{
-    @apply absolute flex justify-center items-center text-5xl left-2 md:left-48 bottom-16;
+    @apply absolute flex justify-center items-center text-5xl left-6 md:left-48 bottom-16;
 
     >button{
       @apply p-1 cursor-pointer scale-y-75 border border-primary/80;

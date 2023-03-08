@@ -4,6 +4,7 @@
 
 @import 'public/css/fonts.css';
 @import './section.scss';
+@import './hero.scss';
 
 * {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -15,6 +16,10 @@
   --color-primary: 0 0 0;
   --color-secondary: 174 180 189;
   --color-background: 255 255 255;
+}
+
+button, input{
+  outline: none;
 }
 
 .link {
@@ -52,6 +57,19 @@
 
 .text-background {
   @apply absolute uppercase tracking-tighter top-0 right-0 -translate-y-1/2 w-full text-right text-[clamp(150px,15vw,15vw)] text-outline font-geometos;
+}
+
+.icon-link{
+  @apply  bg-background/60 p-1 rounded-full;
+  svg{
+    fill: rgb(var(--color-primary) / 0.6);
+    transition: scale 0.8s cubic-bezier(0.19, 1, 0.22, 1), fill 0.8s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &:hover svg{
+    scale: 1.1;
+    fill: rgb(var(--color-primary));
+  }
 }
 
 .box {

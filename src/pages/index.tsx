@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import SectionLayout from '@/layouts/SectionLayout'
 import { useSectionStore } from '@/stores/section'
+import Background from '@/components/Background'
 
 export default function Home() {
   const { CurrentSection } = useSectionStore(true)
@@ -26,7 +27,7 @@ export default function Home() {
           <CurrentSection></CurrentSection>
         </SectionLayout>
 
-        {/* <About></About> */}
+        <Background></Background>
 
         {/* <section>
           About me

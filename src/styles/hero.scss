@@ -1,0 +1,16 @@
+.hero-title{
+  &::after{
+    @apply bg-primary h-full absolute w-5 -right-5;
+    content: '';
+    animation: blinking 2s infinite step-end;
+  }
+}
+
+@keyframes blinking{
+  from, to {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}

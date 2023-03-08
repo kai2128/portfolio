@@ -31,7 +31,7 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
   }, [])
 
   return (
-    <section id='section' className='relative h-screen w-screen flex items-center justify-center md:px-52'>
+    <section id='section' className='relative h-screen w-screen flex items-center justify-center md:px-52 z-10'>
       <DesktopNavbar></DesktopNavbar>
       <SwitchTransition>
         <CSSTransition key={sectionTitle} nodeRef={bodyRef} classNames='expand' addEndListener={(done) => { bodyRef.current?.addEventListener('transitionend', done, false) }}>

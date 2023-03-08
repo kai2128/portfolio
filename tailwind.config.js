@@ -17,6 +17,9 @@ module.exports = {
         bender: 'Bender-Bold',
         gilroy: 'Gilroy-ExtraBold',
       },
+      listStyleType: {
+        square: 'square',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar'), require('@tailwindcss/typography')],

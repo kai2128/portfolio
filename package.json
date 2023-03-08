@@ -10,14 +10,18 @@
   },
   "dependencies": {
     "@nanostores/react": "^0.4.1",
+    "@react-three/drei": "^9.57.1",
+    "@react-three/fiber": "^8.11.10",
     "@types/react-transition-group": "^4.4.5",
     "clsx": "^1.2.1",
+    "maath": "^0.5.2",
     "nanostores": "^0.7.4",
     "next": "13.2.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.8.0",
-    "react-transition-group": "^4.4.5"
+    "react-transition-group": "^4.4.5",
+    "three": "^0.150.1"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^0.35.3",
@@ -25,10 +29,12 @@
     "@types/node": "18.14.4",
     "@types/react": "18.0.28",
     "@types/react-dom": "18.0.11",
+    "@types/three": "^0.149.0",
     "autoprefixer": "^10.4.13",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "eslint-plugin-react": "^7.32.2",
+    "leva": "^0.9.34",
     "modern-normalize": "^1.1.0",
     "postcss": "^8.4.21",
     "sass": "^1.58.3",
