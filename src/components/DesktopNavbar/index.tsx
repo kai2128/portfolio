@@ -11,7 +11,7 @@ interface Props { }
 function NavbarLink({ name }: { name: ValidSection }) {
   const { switchSection, active } = useSectionStore()
   const el = useRef<HTMLAnchorElement>(null)
-  useRandomTextHover(el)
+  useRandomTextHover(el, name.substring(1))
 
   return (
     <Link ref={el} href={name} onClick={() => switchSection(name)} className={clsx(active === name && style.active)}>

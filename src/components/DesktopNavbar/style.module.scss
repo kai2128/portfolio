@@ -5,8 +5,8 @@
     @apply hidden md:flex flex-col gap-2;
 
     >a {
-      @apply uppercase flex bg-white/70 items-center justify-center px-2 h-24 w-24 text-gray-400/80 relative;
-      transition: background-color, color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+      @apply uppercase flex bg-white/70 items-center justify-center px-2 h-24 w-24 text-primary/50 relative;
+      transition: background-color 0.8s cubic-bezier(0.19, 1, 0.22, 1), color 0.8s cubic-bezier(0.19, 1, 0.22, 1);
 
       &:hover {
         @apply bg-background text-primary;
@@ -19,7 +19,7 @@
         aspect-ratio: 3/5;
         border: {
           width: 1rem 1rem 0 0;
-          color: var(--primary-color) transparent transparent transparent;
+          color: rgb(var(--color-primary)) transparent transparent transparent;
         }
         transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
       }
@@ -30,8 +30,8 @@
         @apply scale-0;
         aspect-ratio: 1;
         border: {
-          right: 1px solid var(--primary-color);
-          bottom: 1px solid var(--primary-color);
+          right: 1px solid rgb(var(--color-primary));
+          bottom: 1px solid rgb(var(--color-primary));
         }
         transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
       }

@@ -41,6 +41,14 @@ function nextSection() {
   switchSection(nextSection)
 }
 
+function previousSection() {
+  const currentSection = currentActive.get()
+  let previousSection = validPath[validPath.indexOf(currentSection) - 1]
+  if (previousSection === undefined)
+    previousSection = validPath.at(-1)!
+  switchSection(previousSection)
+}
+
 function triggerEntrance() {
   const currentSection = currentActive.get()
   nextSection()
@@ -64,5 +72,6 @@ export function useSectionStore(shouldInit?: boolean) {
     switchSection,
     nextSection,
     triggerEntrance,
+    previousSection,
   }
 }

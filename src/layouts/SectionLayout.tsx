@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from 'react'
 import React, { useEffect, useRef } from 'react'
+import { VscTriangleLeft, VscTriangleRight } from 'react-icons/vsc'
 
 import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import DesktopNavbar from '@/components/DesktopNavbar'
@@ -10,7 +11,7 @@ interface Props {
 }
 
 const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
-  const { sectionTitle, triggerEntrance } = useSectionStore()
+  const { sectionTitle, triggerEntrance, nextSection, previousSection } = useSectionStore()
   const bgTextRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
   const headerRef = useRef<HTMLDivElement>(null)
@@ -60,6 +61,14 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
         <div className='rounded-full bg-[rgb(34,255,254)] w-5 h-5'></div>
         <div className='rounded-full bg-[rgb(253,35,249)] w-5 h-5'></div>
         <div className='rounded-full bg-[rgb(255,253,64)] w-5 h-5'></div>
+      </div>
+      <div className='section-navigation'>
+        <button onClick={previousSection}>
+          <VscTriangleLeft></VscTriangleLeft>
+        </button>
+        <button onClick={nextSection}>
+          <VscTriangleRight></VscTriangleRight>
+        </button>
       </div>
     </section>
   )

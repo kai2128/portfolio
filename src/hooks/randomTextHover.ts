@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 
 const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-export function useRandomTextHover<T extends HTMLElement>(elRef: React.RefObject<T>) {
+export function useRandomTextHover<T extends HTMLElement>(elRef: React.RefObject<T>, innerText: string) {
   let interval: NodeJS.Timer
 
   function randomizeText(originalText: string) {
@@ -29,7 +29,7 @@ export function useRandomTextHover<T extends HTMLElement>(elRef: React.RefObject
   }
 
   useEffect(() => {
-    const originalText = elRef.current!.innerText
+    const originalText = innerText
     elRef.current?.addEventListener('mouseenter', () => randomizeText(originalText))
     return () => {
       elRef.current?.removeEventListener('mouseenter', () => randomizeText(originalText))

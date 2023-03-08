@@ -8,9 +8,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--primary-color)',
-        secondary: 'var(--secondary-color)',
-        background: 'var(--background-color)',
+        primary: 'rgb(var(--color-primary) / <alpha-value>)',
+        secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
+        background: 'rgb(var(--color-background) / <alpha-value>)',
       },
       fontFamily: {
         geometos: 'Geometos',

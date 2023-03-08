@@ -57,7 +57,7 @@
 }
 
 .navbar {
-  @apply flex flex-col overflow-hidden bg-white/10 py-10 w-full h-full justify-center items-center filter backdrop-blur-sm fixed z-30;
+  @apply flex flex-col overflow-hidden bg-white/10 py-10 w-full h-full justify-center items-center filter backdrop-blur-sm fixed z-30 backdrop-brightness-75;
   opacity: 0;
   visibility: hidden;
   transition: opacity .8s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -68,11 +68,35 @@
   }
 
   >a {
-    @apply py-5 px-5 w-full block text-center text-xl bg-white/50;
+    @apply py-5 px-5 w-full block text-center text-primary/60 text-xl bg-background/80 uppercase;
     transition: all .8s cubic-bezier(0.165, 0.84, 0.44, 1);
 
     &:hover {
-      @apply bg-white/80;
+      @apply bg-background text-primary;
+    }
+
+    &.active{
+      @apply text-primary font-semibold relative;
+
+        &::after,
+        &::before {
+          content: '';
+          height: 0.4rem;
+          width: 0.4rem;
+          position: absolute;
+          border: 2px solid black;
+          border-radius: 2px;
+          top: 50%;
+          translate: 0 -50%;
+        }
+
+        &::after {
+          translate: 50% -50%;
+        }
+
+        &::before {
+          translate: -180% -50%;
+        }
     }
   }
 }

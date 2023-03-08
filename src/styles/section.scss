@@ -73,6 +73,28 @@
   // }
 }
 
+.section-navigation{
+    @apply absolute flex justify-center items-center text-5xl left-2 md:left-48 bottom-16;
+
+    >button{
+      @apply p-1 cursor-pointer scale-y-75 border border-primary/80;
+      svg{
+        transition: transform 0.2s ease-in-out;
+      }
+
+      &:first-child{
+        &:hover svg{
+          transform: translateX(-20%);
+        }
+      }
+      &:last-child{
+        &:hover svg{
+          transform: translateX(20%);
+        }
+      }
+    }
+}
+
 @keyframes body-in {
   0% {
     height: 0;
