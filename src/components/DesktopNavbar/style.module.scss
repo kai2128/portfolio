@@ -35,6 +35,10 @@
         }
         transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
       }
+
+      &:last-child{
+        @apply absolute bottom-0 left-0 text-sm translate-y-36;
+      }
     }
 
     .active {

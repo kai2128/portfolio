@@ -3,16 +3,17 @@ import { atom } from 'nanostores'
 import { useStore } from '@nanostores/react'
 import { useRouter } from 'next/router'
 
-import { About, Contact, Projects, Skills } from '@/components/section'
+import { About, Comments, Contact, Projects, Skills } from '@/components/section'
 
 // interface SectionState {
 //   currentSection: (props: any) => JSX.Element
 // }
-const validPath = ['#about', '#skills', '#projects', '#contact'] as const
+const validPath = ['#about', '#skills', '#projects', '#contact', '#comments'] as const
 const sections = {
   '#about': About,
   '#contact': Contact,
   '#projects': Projects,
+  '#comments': Comments,
   '#skills': Skills,
 }
 export type ValidSection = typeof validPath[number]

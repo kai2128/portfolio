@@ -18,8 +18,66 @@
   --color-background: 255 255 255;
 }
 
-button, input{
+button, input, textarea{
   outline: none;
+}
+
+label{
+  @apply relative border border-primary/10 pt-5 pb-1 px-2 w-full;
+  span{
+    @apply font-bender text-xs text-primary/50 absolute top-0 left-2;
+  }
+  &:hover, &:focus{
+    span{
+      @apply text-primary;
+    }
+  }
+  input, textarea{
+    @apply px-2 py-1 w-full;
+    transition: box-shadow 0.2s;
+    &:hover, &:focus{
+      box-shadow: 0 0 0 1px black;
+    }
+  }
+}
+
+.button-primary{
+  @apply py-3 relative;
+  background: linear-gradient(to left, rgb(var(--color-background)) 0% 50%, rgb(var(--color-primary) / 0.8) 50% 100%);
+  background-size: 202% 100%;
+  background-position: 99% 0%;
+  transition: background-position 0.4s, box-shadow 0.2s;
+  &:before, &:after {
+    content: '';
+    @apply absolute w-5;
+    aspect-ratio: 1;
+    transition: translate 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  &:after{
+    @apply bottom-1 right-1;
+    border: {
+      right: 1px solid rgb(var(--color-primary));
+      bottom: 1px solid rgb(var(--color-primary));
+    }
+  }
+  &:before{
+    @apply top-1 left-1;
+    border: {
+      left: 1px solid rgb(var(--color-primary));
+      top: 1px solid rgb(var(--color-primary));
+    }
+  }
+   &:hover{
+    color: rgb(var(--color-background));
+    box-shadow: 0 0 0 1px black;
+    background-position: 0% 0%;
+    &:before{
+      translate: -50% -50%;
+    }
+    &:after{
+      translate: 50% 50%;
+    }
+  }
 }
 
 .link {

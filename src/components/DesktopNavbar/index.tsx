@@ -28,6 +28,7 @@ const DesktopNavbar = (props: Props) => {
         <NavbarLink name='#skills'></NavbarLink>
         <NavbarLink name='#projects'></NavbarLink>
         <NavbarLink name='#contact'></NavbarLink>
+        <NavbarLink name='#comments'></NavbarLink>
       </div>
     </nav>
   )

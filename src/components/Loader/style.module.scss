@@ -1,0 +1,59 @@
+.loader-background {
+  width: 16rem;
+  height: 8rem;
+  background: linear-gradient(135deg, #0000 25%, #000 0, #000 50%, #0000 0, #0000 75%, #000 0);
+  background-size: 7px 7px;
+  opacity: 0.7;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  animation: loader-background 8s linear infinite;
+
+  .progress-bar{
+    position: absolute;
+    bottom: -0.25rem;
+    left: 0;
+    height: 0.25rem;
+    background: rgb(var(--color-primary));
+  }
+
+  @keyframes loader-background {
+    0% {
+      background-position: 0%;
+    }
+
+    100% {
+      background-position: 100%;
+    }
+  }
+
+  .loader-border {
+    width: 0.4vw;
+    height: 0.4vw;
+    background-color: black;
+    position: absolute;
+  }
+
+  $borderOffset: -0.1vw;
+
+  .loader-border:nth-child(2) {
+    top: $borderOffset;
+    left: $borderOffset;
+  }
+
+  .loader-border:nth-child(3) {
+    top: $borderOffset;
+    right: $borderOffset;
+  }
+
+  .loader-border:nth-child(4) {
+    bottom: $borderOffset;
+    right: $borderOffset;
+  }
+
+  .loader-border:nth-child(5) {
+    bottom: $borderOffset;
+    left: $borderOffset;
+  }
+}

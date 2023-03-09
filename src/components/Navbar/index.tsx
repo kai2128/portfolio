@@ -11,8 +11,8 @@ interface Props { }
 function NavbarLink({ name, toggleOpen }: { name: ValidSection; toggleOpen: React.Dispatch<React.SetStateAction<Boolean | undefined>> }) {
   const { switchSection, active } = useSectionStore()
   const el = useRef<HTMLAnchorElement>(null)
-  useRandomTextHover(el, name.substring(1))
   const nameId = name.substring(1)
+  useRandomTextHover(el, nameId)
   function handleNavigationClick() {
     toggleOpen(false)
     switchSection(name)
@@ -21,7 +21,7 @@ function NavbarLink({ name, toggleOpen }: { name: ValidSection; toggleOpen: Reac
 
   return (
     <Link ref={el} href={name} onClick={() => handleNavigationClick()} className={clsx(active === name && style.active)}>
-      nameId
+      {nameId}
     </Link>
   )
 }
@@ -41,6 +41,7 @@ const Navbar = (props: Props) => {
         <NavbarLink toggleOpen={toggleOpen} name='#skills'></NavbarLink>
         <NavbarLink toggleOpen={toggleOpen} name='#projects'></NavbarLink>
         <NavbarLink toggleOpen={toggleOpen} name='#contact'></NavbarLink>
+        <NavbarLink toggleOpen={toggleOpen} name='#comments'></NavbarLink>
       </nav>
     </>
   )

@@ -9,8 +9,8 @@ const Hero = (props: Props) => {
   return (
     <section className='w-screen h-screen relative'>
       <div className='text-background'>portfolio</div>
-      <div className='flex justify-center items-center h-full relative z-10 flex-col'>
-        <div className='text-5xl tracking-wider uppercase font-extralight md:self-start mb-[25rem] lg:ml-[15rem] md:mb-[25rem] md:ml-[4rem] ml-8 relative'>
+      <div className='flex justify-center items-center h-full relative z-10 flex-col max-w-[1100px] mx-auto'>
+        <div className='text-4xl md:text-5xl tracking-wider uppercase font-extralight lg:self-start absolute top-36 md:top-44'>
           <div className='hero-title'>kai2128 portfolio</div>
 
           <div className='flex md:flex-col justify-start items-start absolute gap-1'>
@@ -20,13 +20,13 @@ const Hero = (props: Props) => {
           </div>
         </div>
 
-        <ul className='list-square text-2xl font-light md:self-end lg:mr-[5rem] mr-[3rem] mb-[5rem] space-y-2'>
+        <ul className='list-square text-lg bottom-44 md:text-2xl font-light md:block md:self-end md:space-y-2 md:bottom-60 absolute'>
           <li>Web Developer</li>
           <li>Software Engineer</li>
           <li>Programmer</li>
         </ul>
       </div>
-      <button className='absolute bottom-28 p-10 w-full flex justify-center items-center z-30' onClick={() => document.getElementById('section')?.scrollIntoView()}>
+      <button className='absolute bottom-14 md:bottom-28 p-10 w-full flex justify-center items-center z-30' onClick={() => document.getElementById('section')?.scrollIntoView()}>
         <TbTriangleInvertedFilled className='text-xl scale-x-150 animate-bounce'></TbTriangleInvertedFilled>
       </button>
     </section>

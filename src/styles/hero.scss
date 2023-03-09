@@ -1,8 +1,8 @@
 .hero-title{
   &::after{
-    @apply bg-primary h-full absolute w-5 -right-5;
+    @apply bg-primary h-full absolute w-3 md:w-5 md:-right-8 -right-5;
     content: '';
-    animation: blinking 2s infinite step-end;
+    animation: blinking 1.5s infinite step-end;
   }
 }
 

@@ -3,6 +3,7 @@ import { Suspense } from 'react'
 import { AccumulativeShadows, Preload, RandomizedLight, Stage } from '@react-three/drei'
 import { useControls } from 'leva'
 import { ComputerModel } from './ComputerModel'
+import Loader from '../Loader'
 // function ComputerModel() {
 //   const computer = useGLTF('./models/computer.glb')
 //   const mesh = useRef<Mesh>(null)
@@ -33,7 +34,7 @@ import { ComputerModel } from './ComputerModel'
 export function Computer() {
   return (
     <Canvas frameloop='always' shadows gl={{ preserveDrawingBuffer: true }} camera={{ fov: 35, zoom: 0.7, near: 1, far: 1000 }} dpr={[1, 2]}>
-      <Suspense fallback={null}>
+      <Suspense fallback={<Loader></Loader>}>
         <ambientLight intensity={0.25}></ambientLight>
         <Stage
           intensity={0.5}
@@ -48,3 +49,5 @@ export function Computer() {
     </Canvas>
   )
 }
+
+

@@ -36,7 +36,7 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
       <SwitchTransition>
         <CSSTransition key={sectionTitle} nodeRef={bodyRef} classNames='expand' addEndListener={(done) => { bodyRef.current?.addEventListener('transitionend', done, false) }}>
           <div ref={bodyRef} className='section-box'>
-            <div className='relative bg-white/90 flex h-full'>
+            <div className='relative bg-white/90 h-full'>
               <h2 className='section-header' ref={headerRef}>
                 {sectionTitle}
                 <div className='cover'></div>
