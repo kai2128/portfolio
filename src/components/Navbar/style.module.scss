@@ -1,5 +1,5 @@
 .menu-button-wrap {
-  @apply scale-100 top-2 left-2 md:scale-125 fixed md:top-8 md:left-8 z-40 bg-white p-1 cursor-pointer;
+  @apply scale-100 top-2 left-2 md:scale-125 fixed md:top-8 md:left-8 z-50 bg-white p-1 cursor-pointer;
   transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
 
   .menu-button {

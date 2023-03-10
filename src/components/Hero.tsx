@@ -4,8 +4,10 @@ import { TbTriangleInvertedFilled } from 'react-icons/tb'
 import { AiFillGithub } from 'react-icons/ai'
 import Link from 'next/link'
 interface Props {}
-
 const Hero = (props: Props) => {
+  function scrollToSection() {
+    document.getElementById('section')?.scrollIntoView({ block: 'end', inline: 'end', behavior: 'smooth' })
+  }
   return (
     <section className='w-screen h-screen relative'>
       <div className='text-background'>portfolio</div>
@@ -26,7 +28,7 @@ const Hero = (props: Props) => {
           <li>Programmer</li>
         </ul>
       </div>
-      <button className='absolute bottom-14 md:bottom-28 p-10 w-full flex justify-center items-center z-30' onClick={() => document.getElementById('section')?.scrollIntoView()}>
+      <button className='absolute bottom-14 md:bottom-28 p-10 w-full flex justify-center items-center z-30' onClick={() => scrollToSection()}>
         <TbTriangleInvertedFilled className='text-xl scale-x-150 animate-bounce'></TbTriangleInvertedFilled>
       </button>
     </section>

@@ -57,7 +57,7 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
         </CSSTransition>
       </SwitchTransition>
       <div className='bg-dotted h-64 w-64 absolute bottom-10 right-5'></div>
-      <div className='absolute left-6 bottom-6 flex gap-5'>
+      <div className='absolute md:left-6 md:bottom-6 bottom-6 flex gap-5'>
         <div className='rounded-full bg-[rgb(34,255,254)] w-5 h-5'></div>
         <div className='rounded-full bg-[rgb(253,35,249)] w-5 h-5'></div>
         <div className='rounded-full bg-[rgb(255,253,64)] w-5 h-5'></div>

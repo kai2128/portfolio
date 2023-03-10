@@ -16,6 +16,7 @@
   --color-primary: 0 0 0;
   --color-secondary: 174 180 189;
   --color-background: 255 255 255;
+  --color-background-secondary: 230 230 230;
 }
 
 button, input, textarea{
@@ -127,38 +128,5 @@ label{
   &:hover svg{
     scale: 1.1;
     fill: rgb(var(--color-primary));
-  }
-}
-
-.box {
-  $boxSize: 1.5vh;
-  background: #000;
-  width: $boxSize;
-  aspect-ratio: 1;
-  border: 1px solid black;
-  position: absolute;
-
-  &--top-left {
-    @extend .box;
-    top: -$boxSize/2;
-    left: -$boxSize/2;
-  }
-
-  &--top-right {
-    @extend .box;
-    top: -$boxSize/2;
-    right: -$boxSize/2;
-  }
-
-  &--bot-left {
-    @extend .box;
-    bottom: -$boxSize/2;
-    left: -$boxSize/2;
-  }
-
-  &--bot-right {
-    @extend .box;
-    bottom: -$boxSize/2;
-    right: -$boxSize/2;
   }
 }

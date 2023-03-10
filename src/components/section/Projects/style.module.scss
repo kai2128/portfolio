@@ -1,0 +1,37 @@
+.filter-button{
+  @apply px-2 relative;
+  transition: color 0.3ms, background-color 0.3ms;
+  &:hover{
+    @apply bg-secondary-background/50;
+  }
+  &.active {
+    @apply bg-primary/80 text-white;
+  }
+  &:not(:last-child):after{
+    content: '';
+    height: 80%;
+    @apply absolute w-[0.5px] -right-[6px] top-1/2 -translate-y-1/2 bg-secondary-background;
+  }
+}
+
+.card{
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  &::before{
+      @apply border border-primary w-[103%] h-[80%] md:w-[108%];
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      transform: scaleX(0);
+      transition: transform 0.3s cubic-bezier(0.47, 0, 0.745, 0.715);
+    }
+  &:hover{
+    transform: scale(1.04);
+    &::before{
+      transform: scaleX(1);
+    }
+  }
+}
