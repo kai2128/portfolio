@@ -1,3 +1,4 @@
+import { useDataStore } from '@/stores/data'
 import React from 'react'
 import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
@@ -12,11 +13,14 @@ interface Inputs {
 }
 
 const Contact = (props: Props) => {
+  const { contact } = useDataStore().data
+
   const { register, handleSubmit } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     // REVIEW - replace email
-    window.location.href = `mailto:myemail?subject=${formData.subject}&body=Hi, I am ${formData.name}. ${formData.message} %0D%0A(${formData.email})`
+    window.location.href = `mailto:${contact.email}?subject=${formData.subject}&body=Hi, I am ${formData.name}. ${formData.message} %0D%0A(${formData.email})`
   }
+  console.log(contact.googleMapUrl)
 
   return (
     <div>
@@ -24,16 +28,16 @@ const Contact = (props: Props) => {
 
       <div className='section-body'>
         <div className='w-full h-[250px]'>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1019768.6698219931!2d101.3809674!3d3.2322231!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc4252cdeb045f%3A0x26e1bee1215dfbb9!2sSelangor!5e0!3m2!1sen!2smy!4v1678380543190!5m2!1sen!2smy" height={'100%'} width={'100%'} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src={contact.googleMapUrl} height={'100%'} width={'100%'} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div className='grid grid-cols-2 gap-x-2 md:gap-x-8 mt-2'>
           <div className='flex justify-between'>
             <span>Location</span>
-            <span>Malaysia</span>
+            <span>{contact.adress}</span>
           </div>
           <div className='flex justify-between'>
             <span>Email</span>
-            <span>01134567</span>
+            <span>{contact.email}</span>
           </div>
         </div>
       </div>

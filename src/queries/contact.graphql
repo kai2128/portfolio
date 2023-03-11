@@ -1,0 +1,7 @@
+query ContactQuery {
+  contacts(first: 1){
+    adress
+    googleMapUrl
+    email
+  }
+}

@@ -1,0 +1,7 @@
+query AboutQuery {
+  abouts(first: 1) {
+    languages
+    overview
+    services
+  }
+}

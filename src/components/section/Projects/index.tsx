@@ -3,40 +3,12 @@ import Link from 'next/link'
 import React from 'react'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
 import style from './style.module.scss'
+import { useDataStore } from '@/stores/data'
 
 interface Props { }
 
 const Projects = (props: Props) => {
-  const projects = [
-    {
-      name: 'test',
-      description: 'desc ',
-      tags: ['ts', 'react-native'],
-      url: 'github.com',
-      img: 'https://source.unsplash.com/random',
-    },
-    {
-      name: 'test',
-      description: 'desc',
-      tags: ['ts', 'react-native'],
-      url: 'github.com',
-      img: 'https://source.unsplash.com/random',
-    },
-    {
-      name: 'test',
-      description: 'desc',
-      tags: ['ts', 'react-native'],
-      url: 'github.com',
-      img: 'https://source.unsplash.com/random',
-    },
-    {
-      name: 'test',
-      description: 'desc',
-      tags: ['ts', 'react-native', 'ts', 'react-native', 'ts', 'react-native', 'ts', 'react-native'],
-      url: 'github.com',
-      img: 'https://source.unsplash.com/random',
-    },
-  ] as ProjectCardProps[]
+  const { projects } = useDataStore().data
   return (
     <>
       <div className='section-subheading'>What I have done so far</div>
@@ -70,7 +42,6 @@ interface ProjectCardProps {
   url: string
   tags: string[]
   categories?: string[]
-  date: Date
 }
 
 function ProjectCard({ name, description, img, url, tags }: ProjectCardProps) {
@@ -97,7 +68,7 @@ function ProjectCard({ name, description, img, url, tags }: ProjectCardProps) {
             {description}
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Inventore est expedita velit unde a possimus consequatur ducimus voluptates ullam nam saepe, dignissimos libero quae voluptatum illo eum, facere quia tempora.
           </div>
-          <div className='flex text-sm overflow-y-auto gap-x-5 scrollbar-thin scrollbar scrollbar-thumb-secondary pb-2'>
+          <div className='flex text-sm overflow-y-auto gap-x-5 scrollbar-thin scrollbar-thumb-secondary pb-2'>
             {tags.map(t => (
               <span className='text-primary/50 whitespace-pre' key={t}>{t}</span>
             ))}

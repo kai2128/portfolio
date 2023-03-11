@@ -1,0 +1,15 @@
+query CommentsQuery{
+  comments{
+    id
+  	name
+    comment
+	}
+}
+
+mutation CreateComment {
+  createComment(data: {name: "test", comment: "test"}) {
+  	id
+    name
+    comment
+  }
+}

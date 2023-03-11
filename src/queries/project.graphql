@@ -1,0 +1,11 @@
+query ProjectQuery {
+  projects {
+    id
+    imgUrl
+    name
+    description
+    tags
+    publishedAt
+    url
+  }
+}

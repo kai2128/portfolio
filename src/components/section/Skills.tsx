@@ -1,14 +1,16 @@
 import React from 'react'
+import { useDataStore } from '@/stores/data'
 
-interface Props {}
+interface Props { }
 
 const Skills = (props: Props) => {
+  const { skills } = useDataStore().data
+
   return (
     <>
       <div className='section-subheading'>Programming languages</div>
       <div className='section-body'>
-        {/* about.content */}
-        HTML, CSS, JavaScript & TypeScript, PHP, Python Java, C++, SQL
+        <SkillCards data={skills.programmingLanguage}></SkillCards>
       </div>
 
       <div className='section-subheading'>Web development</div>
@@ -18,7 +20,7 @@ const Skills = (props: Props) => {
             Frontend
           </div>
           <div>
-            Vue, React, Next.js, Nuxt
+            <SkillCards data={skills.frontend}></SkillCards>
           </div>
         </div>
         <div>
@@ -26,49 +28,64 @@ const Skills = (props: Props) => {
             Backend
           </div>
           <div>
-            Laravel
-          </div>
-        </div>
-        <div>
-          <div className='section-subheading2'>UI/UX</div>
-          <div>
-            TailwindCSS, UnoCSS, Sass
+            <SkillCards data={skills.backend}></SkillCards>
           </div>
         </div>
         <div>
           <div className='section-subheading2'>Libraries / tools</div>
           <div>
-            GSAP, three.js, vite, webpack, ESLint, node.js, GraphQL, sanity, hygraph
+            <SkillCards data={skills.libraries}></SkillCards>
           </div>
         </div>
       </div>
 
       <div className='section-subheading'>Mobile development</div>
       <div className='section-body'>
-        React Native, Swift
+        <SkillCards data={skills.mobile}></SkillCards>
       </div>
 
       <div className='section-subheading'>Game development</div>
       <div className='section-body'>
-        Unity, C#
+        <SkillCards data={skills.game}></SkillCards>
       </div>
 
       <div className='section-subheading'>Database</div>
       <div className='section-body'>
-        MySQL, MongoDB, SQLite
+        <SkillCards data={skills.database}></SkillCards>
       </div>
 
       <div className='section-subheading'>CI/CD</div>
       <div className='section-body'>
-        GitHub Actions
+        <SkillCards data={skills.cicd}></SkillCards>
       </div>
 
       <div className='section-subheading'>Software / Tools</div>
       <div className='section-body'>
-        VSCode, Figma, Git, GitHub, Blender, Photoshop
+        <SkillCards data={skills.tools}></SkillCards>
       </div>
     </>
   )
 }
 
 export default Skills
+
+interface SkillData {
+  data: {
+    name: string
+    iconUrl: string
+  }[]
+}
+function SkillCards(data: SkillData) {
+  return (
+    <div className='flex flex-wrap gap-x-5'>
+      {
+        data.data?.map(s => (
+          <div key={s.name} className="flex items-center justify-end gap-x-1 flex-col">
+            <img className='w-8 object-cover' src={s.iconUrl} alt={s.name} />
+            <span className='text-sm'>{s.name}</span>
+          </div>
+        ))
+      }
+    </div>
+  )
+}
