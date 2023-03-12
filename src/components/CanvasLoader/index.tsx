@@ -4,7 +4,7 @@ import style from './style.module.scss'
 
 interface Props { }
 
-const Loader = (props: Props) => {
+const CanvasLoader = (props: Props) => {
   const { progress } = useProgress()
   return (
     <Html>
@@ -24,4 +24,4 @@ const Loader = (props: Props) => {
   )
 }
 
-export default Loader
+export default CanvasLoader

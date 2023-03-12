@@ -1,7 +1,7 @@
-import { useDataStore } from '@/stores/data'
 import React from 'react'
 import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
+import { useDataStore } from '@/stores/data'
 
 interface Props { }
 
@@ -17,10 +17,8 @@ const Contact = (props: Props) => {
 
   const { register, handleSubmit } = useForm<Inputs>()
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
-    // REVIEW - replace email
     window.location.href = `mailto:${contact.email}?subject=${formData.subject}&body=Hi, I am ${formData.name}. ${formData.message} %0D%0A(${formData.email})`
   }
-  console.log(contact.googleMapUrl)
 
   return (
     <div>

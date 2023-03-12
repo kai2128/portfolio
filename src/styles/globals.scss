@@ -23,8 +23,27 @@ button, input, textarea{
   outline: none;
 }
 
+form[aria-disabled="true"]{
+  label{
+    input,textarea{
+      @apply bg-secondary-background pointer-events-none;
+    }
+  }
+}
 label{
   @apply relative border border-primary/10 pt-5 pb-1 px-2 w-full;
+  transition: border-color 0.3s;
+  &.error{
+    @apply border-red-600 bg-red-600/10;
+    animation: show-error 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    @keyframes show-error{
+      0%{transform: translateX(-5px);}
+      20%{transform: translateX(5px);}
+      40%{transform: translateX(-2.5px);}
+      60%{transform: translateX(2.5px);}
+      100%{transform: translateX(0);}
+    }
+  }
   span{
     @apply font-bender text-xs text-primary/50 absolute top-0 left-2;
   }
@@ -47,12 +66,12 @@ label{
   background: linear-gradient(to left, rgb(var(--color-background)) 0% 50%, rgb(var(--color-primary) / 0.8) 50% 100%);
   background-size: 202% 100%;
   background-position: 99% 0%;
-  transition: background-position 0.4s, box-shadow 0.2s;
+  transition: background 0.4s, color 0.4s,background-position 0.4s, box-shadow 0.2s;
   &:before, &:after {
     content: '';
     @apply absolute w-5;
     aspect-ratio: 1;
-    transition: translate 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: border-color 0.5s, translate 0.5s cubic-bezier(0.19, 1, 0.22, 1);
   }
   &:after{
     @apply bottom-1 right-1;
@@ -77,6 +96,19 @@ label{
     }
     &:after{
       translate: 50% 50%;
+    }
+  }
+  &:disabled{
+    background: linear-gradient(to left, rgb(var(--color-primary) / 0.4) 0% 100%);
+    color: rgb(var(--color-background));
+    box-shadow: 0 0 0 1px black;
+    &:before{
+      border-color: rgb(var(--color-background));
+      translate: 0% 0%;
+    }
+    &:after{
+      border-color: rgb(var(--color-background));
+      translate: 0% 0%;
     }
   }
 }

@@ -1,0 +1,134 @@
+.toast {
+  @apply fixed bottom-10 left-1/2 -translate-x-1/2 z-50;
+
+  .container {
+    @apply flex items-center justify-center bg-primary text-background py-1 px-5 overflow-hidden;
+    visibility: hidden;
+
+    &::after,
+    &::before {
+      @apply bg-background w-[4px] aspect-square rounded-full absolute;
+      content: '',
+    }
+
+    &::after {
+      @apply left-2;
+    }
+
+    &::before {
+      @apply right-2;
+    }
+
+    .body {
+      @apply text-inherit overflow-hidden text-center whitespace-nowrap;
+    }
+  }
+}
+
+.in {
+  &.toast .container {
+    visibility: visible;
+
+    &::after,
+    &::before {
+      animation: flash-in 0.4s linear forwards;
+    }
+  }
+
+  .body {
+    animation: toast-in 0.34s cubic-bezier(0.3, 0.79, 0.55, 0.99) forwards;
+  }
+}
+
+.out {
+  &.toast .container {
+    visibility: visible;
+    width: 300px;
+    animation: flash-out 0.34s cubic-bezier(0.3, 0.79, 0.55, 0.99) forwards;
+  }
+}
+
+@keyframes toast-in {
+  0% {
+    width: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    width: 300px;
+    transform: scale(1);
+  }
+}
+
+@keyframes flash-in {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0;
+  }
+
+  92% {
+    opacity: 1;
+  }
+
+  94% {
+    opacity: 0;
+  }
+
+  96% {
+    opacity: 1;
+  }
+
+  98% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes flash-out {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+}

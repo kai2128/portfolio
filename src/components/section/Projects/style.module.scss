@@ -15,7 +15,9 @@
 }
 
 .card{
+  @apply md:w-auto w-full;
   transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  height: fit-content;
   position: relative;
   &::before{
       @apply border border-primary w-[103%] h-[80%] md:w-[108%];

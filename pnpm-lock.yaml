@@ -5,6 +5,7 @@ specifiers:
   '@graphql-codegen/cli': 3.2.2
   '@graphql-codegen/client-preset': 2.1.1
   '@graphql-typed-document-node/core': ^3.1.2
+  '@nanostores/persistent': ^0.7.0
   '@nanostores/react': ^0.4.1
   '@react-three/drei': ^9.57.1
   '@react-three/fiber': ^8.11.10
@@ -22,6 +23,7 @@ specifiers:
   eslint-plugin-react: ^7.32.2
   graphql: ^16.6.0
   graphql-request: ^5.2.0
+  gsap: ^3.11.4
   leva: ^0.9.34
   maath: ^0.5.2
   modern-normalize: ^1.1.0
@@ -42,6 +44,7 @@ specifiers:
 
 dependencies:
   '@graphql-typed-document-node/core': 3.1.2_graphql@16.6.0
+  '@nanostores/persistent': 0.7.0_nanostores@0.7.4
   '@nanostores/react': 0.4.1_nkfnbc2tpc77iht7asm3uqwau4
   '@react-three/drei': 9.57.1_hcvssd3cvm56lplb4cayzkvmny
   '@react-three/fiber': 8.11.10_73epb4osyabtjyiaeamriercbi
@@ -50,6 +53,7 @@ dependencies:
   clsx: 1.2.1
   graphql: 16.6.0
   graphql-request: 5.2.0_graphql@16.6.0
+  gsap: 3.11.4
   maath: 0.5.2_oyaj2jlpysyfazslc2ugsblcbe
   nanostores: 0.7.4
   next: 13.2.3_wiv434v7erz4aedd5whhdwmpv4
@@ -1480,6 +1484,15 @@ packages:
       '@jridgewell/resolve-uri': 3.1.0
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
+
+  /@nanostores/persistent/0.7.0_nanostores@0.7.4:
+    resolution: {integrity: sha512-4PAInL/T1hbftZUJ0cmgdFHBMalUoq7BUXFBy7QfyMv/8X3LPTYNh/yxspL7+J+XM3UNvVI7IFRMMs6FBasjhQ==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+    peerDependencies:
+      nanostores: ^0.7.0
+    dependencies:
+      nanostores: 0.7.4
+    dev: false
 
   /@nanostores/react/0.4.1_nkfnbc2tpc77iht7asm3uqwau4:
     resolution: {integrity: sha512-lsv0CYrMxczbXtoV/mxFVEoL/uVjEjseoP89srO/5yNAOkJka+dSFS7LYyWEbuvCPO7EgbtkvRpO5V+OztKQOw==}
@@ -4367,6 +4380,10 @@ packages:
   /graphql/16.6.0:
     resolution: {integrity: sha512-KPIBPDlW7NxrbT/eh4qPXz5FiFdL5UbaA0XUNz2Rp3Z3hqBSkbj0GVjwFDztsWVauZUWsbKHgMg++sk8UX0bkw==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
+
+  /gsap/3.11.4:
+    resolution: {integrity: sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==}
+    dev: false
 
   /has-bigints/1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
