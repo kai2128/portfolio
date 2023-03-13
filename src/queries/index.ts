@@ -74,20 +74,37 @@ fragment T on Tech {
 `)
 
 export const GET_COMMENTS = graphql(`
-query CommentsQuery{
-  comments{
-    id
-    name
-    comment
-    createdAt
-  }
-}
+ query CommentsQuery($first: Int!, $after: String) {
+        commentsConnection(
+          first: $first
+          after: $after
+          orderBy: createdAt_DESC
+          stage: DRAFT
+        ) {
+          edges {
+            cursor
+            node {
+              comment
+              createdAt
+              id
+              name
+            }
+          }
+          pageInfo {
+            endCursor
+            hasNextPage
+          }
+        }
+      }
 `)
 
 export const CREATE_COMMENT = graphql(`
   mutation CreateComment ($name: String!, $comment: String!) {
     createComment(data: {name: $name, comment: $comment}) {
       id
+      name
+      comment
+      createdAt
     }
   }
 `)

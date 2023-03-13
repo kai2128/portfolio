@@ -11,8 +11,8 @@ export default async function handler(
   res: NextApiResponse<PublishCommentMutation>,
 ) {
   try {
-    const id = await client.request(CREATE_COMMENT, req.body)
-    const comment = await client.request(PUBLISH_COMMENT, { id: id.createComment?.id })
+    const comment = await client.request(CREATE_COMMENT, req.body)
+    // const comment = await client.request(PUBLISH_COMMENT, { id: id.createComment?.id })
     res.status(200).json(comment)
   }
   catch (err) {

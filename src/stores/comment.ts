@@ -1,9 +1,10 @@
-import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
+import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
 import { useStore } from '@nanostores/react'
 import { persistentMap } from '@nanostores/persistent'
-import type { PublishCommentMutation } from './../gql/graphql'
-import { GET_COMMENTS } from '@/queries'
+import type { CreateCommentMutation } from './../gql/graphql'
+
 import { gqlClient } from '@/utils/grapql-client'
+import { GET_COMMENTS } from '@/queries'
 
 // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
 type Inputs = {
@@ -22,9 +23,13 @@ export function useCommentsStore() {
     presistForm(inputs: Inputs) {
       formInputs.set(inputs)
     },
-    formInputs: useStore(formInputs),
-    useCommentsQuery: () => useQuery(['comments'], async () => gqlClient.request(GET_COMMENTS)),
-    useCreateCommentMutation: () => useMutation(async (data: Inputs): Promise<PublishCommentMutation> => {
+    formInputs,
+    useCommentsQuery: () => useInfiniteQuery({
+      queryKey: ['comments'],
+      queryFn: async ({ pageParam = null }) => gqlClient.request(GET_COMMENTS, { first: 10, after: pageParam }),
+      getNextPageParam: (lastPage, pages) => lastPage.commentsConnection.pageInfo.endCursor,
+    }),
+    useCreateCommentMutation: () => useMutation(async (data: Inputs): Promise<CreateCommentMutation> => {
       return fetch('/api/comment/create', {
         method: 'POST',
         headers: {
@@ -33,14 +38,13 @@ export function useCommentsStore() {
         body: JSON.stringify(data),
       }).then(r => r.json())
     }, {
-      onSuccess: ({ publishComment }) => {
+      onSuccess: (result) => {
         queryClient.setQueryData(['comments'], (old) => {
-          const oldComments = old.comments
-          return {
-            comments: [
-              ...oldComments, publishComment,
-            ],
-          }
+          const firstPage = old.pages[0].commentsConnection.edges || []
+          const newFirstPage = [{ node: result.createComment }, ...firstPage]
+          const newComments = { ...old }
+          newComments.pages[0].commentsConnection.edges = newFirstPage
+          return newComments
         })
       },
     }),

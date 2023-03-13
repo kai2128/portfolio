@@ -4,6 +4,7 @@ import React from 'react'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
 import style from './style.module.scss'
 import { useProjectFilter } from '@/stores/data'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 
 interface Props { }
 
@@ -15,7 +16,7 @@ const Projects = (props: Props) => {
       <div className='section-subheading'>What I have done so far</div>
 
       <div className='section-body'>
-        <div className='flex flex-wrap md:gap-x-10 gap-x-4 gap-y-5 relative mt-10 border'>
+        <TransitionGroup component={'div'} className='flex flex-wrap md:gap-x-10 gap-x-4 gap-y-5 relative mt-10 border'>
           <div className='absolute -top-8 left-0'>
             <div className='flex gap-x-3 border px-1'>
               {
@@ -25,12 +26,14 @@ const Projects = (props: Props) => {
               }
             </div>
           </div>
-          {
-            projects.map((p, i) => (
-              <ProjectCard key={i} {...p}></ProjectCard>
-            ))
-          }
-        </div>
+            {
+              projects.map((p, i) => (
+                <CSSTransition nodeRef={p.nodeRef} key={p.id} timeout={500} classNames={style.item}>
+                  <ProjectCard key={p.id} {...p}></ProjectCard>
+                </CSSTransition>
+              ))
+            }
+        </TransitionGroup>
       </div>
     </>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
 import { useQueryClient } from '@tanstack/react-query'
@@ -17,29 +17,44 @@ const Comments = (props: Props) => {
   const { formInputs, useCommentsQuery, useCreateCommentMutation, presistForm } = useCommentsStore()
   const { register, handleSubmit, reset, formState: { errors }, watch } = useForm<Inputs>({
     values: {
-      ...formInputs,
+      ...formInputs.get(),
     },
   })
   presistForm(watch())
-
-  const { data, isLoading } = useCommentsQuery()
+  const { notify } = useToastStore()
+  const { data, isLoading, hasNextPage, fetchNextPage } = useCommentsQuery()
 
   const queryClient = useQueryClient()
   const createCommentMutation = useCreateCommentMutation()
   const onSubmit: SubmitHandler<Inputs> = (formData) => {
     createCommentMutation.mutate(formData, {
-      onSuccess({ publishComment }) {
+      onSuccess() {
         reset({
           comment: '',
-          name: '',
         })
+        notify('Comment created')
       },
     })
   }
-  const { notify } = useToastStore()
   const onError = () => {
     notify('Comment is required')
   }
+
+  const lastCommentRef = useRef<HTMLDivElement>(null)
+  useEffect(() => {
+    const observer = new IntersectionObserver(([{ isIntersecting }]) => {
+      if (isIntersecting && hasNextPage) {
+        notify('Loading more comments...')
+        fetchNextPage()
+      }
+      if (isIntersecting && !hasNextPage)
+        notify('You have reached the end')
+    })
+    observer.observe(lastCommentRef.current!)
+    return () => {
+      observer.disconnect()
+    }
+  }, [hasNextPage])
   return (
     <div>
       <form aria-disabled={createCommentMutation.isLoading} className='flex flex-col space-y-2 mx-auto max-w-[800px] border border-l-8 border-l-primary p-4' onSubmit={handleSubmit(onSubmit, onError)}>
@@ -56,12 +71,16 @@ const Comments = (props: Props) => {
         </button>
       </form>
       <hr className='my-5' />
-      <div className='flex flex-col gap-y-2 border-l-2 border-l-primary py-2 pl-1'>
-        {
-          data?.comments.map(c => (
-            <CommentItem {...c} key={c.id}></CommentItem>
+      <div className='flex flex-col gap-y-2 border-l-2 border-l-primary py-2 pl-1 relative'>
+        {(data?.pages !== undefined && data.pages.length !== 0)
+          ? data?.pages.map(page => (
+            page.commentsConnection.edges.map((c, i) => (
+              <CommentItem {...c.node} key={c.node.id}></CommentItem>
+            ))
           ))
+          : <div className='px-2 text-primary/50'>No comments currently...</div>
         }
+        <div ref={lastCommentRef} className='bg-red-200 absolute bottom-0 -z-10 opacity-0'>last</div>
       </div>
     </div>
   )

@@ -17,7 +17,6 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
   const headerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // bodyRef.current.
     const observer = new IntersectionObserver(([{ isIntersecting }]) => {
       if (isIntersecting) {
         triggerEntrance()

@@ -1,18 +1,34 @@
 .filter-button{
   @apply px-2 relative;
-  transition: color 0.3ms, background-color 0.3ms;
+  transition: color 0.3s, background-color 0.3s;
   &:hover{
     @apply bg-secondary-background/50;
-  }
-  &.active {
-    @apply bg-primary/80 text-white;
   }
   &:not(:last-child):after{
     content: '';
     height: 80%;
     @apply absolute w-[0.5px] -right-[6px] top-1/2 -translate-y-1/2 bg-secondary-background;
   }
+  &.active {
+    @apply bg-primary/80 text-white;
+  }
 }
+
+.item-enter {
+  opacity: 0;
+}
+.item-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.item-exit {
+  opacity: 1;
+}
+.item-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
+
 
 .card{
   @apply md:w-auto w-full;

@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const queryClient = new QueryClient()
   await queryClient.prefetchQuery({
     queryKey: ['comments'],
-    queryFn: () => gqlClient.request(GET_COMMENTS),
+    queryFn: () => gqlClient.request(GET_COMMENTS, { first: 10, after: null }),
   })
 
   const about = await gqlClient.request(GET_ABOUT)
