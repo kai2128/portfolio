@@ -2,9 +2,10 @@ import clsx from 'clsx'
 import Link from 'next/link'
 import React from 'react'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import style from './style.module.scss'
 import { useProjectFilter } from '@/stores/data'
-import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import { replaceNewlineWithBR } from '@/utils/string'
 
 interface Props { }
 
@@ -63,15 +64,14 @@ function ProjectCard({ name, description, img, url, tags }: ProjectCardProps) {
           {
             img
               ? <img className='w-full h-full object-cover' src={img} alt={'{name} image'} />
-              : <div className='bg-primary w-full h-full'></div>
+              : <div className='bg-primary/50 w-full h-full'></div>
           }
         </div>
         <div className='px-3'>
           <div className='text-xl mb-2 mt-3 font-semibold'>
             {name}
           </div>
-          <div className='text-base mb-3'>
-            {description}
+          <div className='text-base mb-3' dangerouslySetInnerHTML={{ __html: replaceNewlineWithBR(description) }}>
           </div>
           <div className='flex text-sm overflow-y-auto gap-x-5 scrollbar-thin scrollbar-thumb-secondary pb-2'>
             {tags.map(t => (

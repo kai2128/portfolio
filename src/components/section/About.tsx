@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDataStore } from '@/stores/data'
+import { replaceNewlineWithBR } from '@/utils/string'
 
 interface Props {}
 
@@ -8,8 +9,7 @@ const About = (props: Props) => {
   return (
     <>
       <div className='section-subheading'>Overview</div>
-      <div className='section-body'>
-        {about?.overview}
+      <div className='section-body' dangerouslySetInnerHTML={{ __html: replaceNewlineWithBR(about?.overview) }}>
       </div>
 
       <div className='section-subheading'>Languages</div>

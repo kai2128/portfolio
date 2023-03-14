@@ -34,7 +34,7 @@ const LoadingIndicator = () => {
     if (timeline === undefined)
       return
 
-    if (isFetching || isMutating)
+    if (isFetching || isMutating || true)
       timeline.play()
     else
       timeline.pause()
