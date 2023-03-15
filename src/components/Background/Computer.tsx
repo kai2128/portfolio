@@ -1,9 +1,8 @@
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import { AccumulativeShadows, Preload, RandomizedLight, Stage } from '@react-three/drei'
-import { useControls } from 'leva'
-import { ComputerModel } from './ComputerModel'
+import { Preload, Stage } from '@react-three/drei'
 import CanvasLoader from '../CanvasLoader'
+import { ComputerModel } from './ComputerModel'
 // function ComputerModel() {
 //   const computer = useGLTF('./models/computer.glb')
 //   const mesh = useRef<Mesh>(null)
@@ -40,7 +39,6 @@ export function Computer() {
           intensity={0.5}
           preset={'portrait'}
           shadows
-          adjustCamera
         >
           <ComputerModel></ComputerModel>
         </Stage>
@@ -49,5 +47,3 @@ export function Computer() {
     </Canvas>
   )
 }
-
-

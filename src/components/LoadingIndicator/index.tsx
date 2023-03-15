@@ -1,3 +1,4 @@
+'use client'
 import { useIsFetching, useIsMutating } from '@tanstack/react-query'
 import clsx from 'clsx'
 import gsap, { Power2 } from 'gsap'
