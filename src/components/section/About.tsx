@@ -1,6 +1,7 @@
 import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 import { useDataStore } from '@/stores/data'
-import { replaceNewlineWithBR } from '@/utils/string'
 
 interface Props {}
 
@@ -9,7 +10,12 @@ const About = (props: Props) => {
   return (
     <>
       <div className='section-subheading'>Overview</div>
-      <div className='section-body' dangerouslySetInnerHTML={{ __html: replaceNewlineWithBR(about?.overview) }}>
+      <div className='section-body'>
+        <article className="prose prose-p:text-lg prose-p:leading-[1.5]">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {about?.overview}
+          </ReactMarkdown>
+        </article>
       </div>
 
       <div className='section-subheading'>Languages</div>
@@ -21,7 +27,7 @@ const About = (props: Props) => {
         }
       </div>
 
-      <div className='section-body'>
+      {/* <div className='section-body'>
         <div className='flex flex-wrap gap-10 items-center justify-center'>
           {
             about?.services.map(s => (
@@ -29,7 +35,7 @@ const About = (props: Props) => {
             ))
           }
         </div>
-      </div>
+      </div> */}
     </>
   )
 }

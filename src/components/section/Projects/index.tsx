@@ -3,9 +3,10 @@ import Link from 'next/link'
 import React from 'react'
 import { BsBoxArrowUpRight } from 'react-icons/bs'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import remarkGfm from 'remark-gfm'
+import ReactMarkdown from 'react-markdown'
 import style from './style.module.scss'
 import { useProjectFilter } from '@/stores/data'
-import { replaceNewlineWithBR } from '@/utils/string'
 
 interface Props { }
 
@@ -71,7 +72,10 @@ function ProjectCard({ name, description, img, url, tags }: ProjectCardProps) {
           <div className='text-xl mb-2 mt-3 font-semibold'>
             {name}
           </div>
-          <div className='text-base mb-3' dangerouslySetInnerHTML={{ __html: replaceNewlineWithBR(description) }}>
+          <div className="prose prose-p:text-base prose-p:leading-[1.4] mb-3">
+            <ReactMarkdown remarkPlugins={[remarkGfm]}>
+              {description}
+            </ReactMarkdown>
           </div>
           <div className='flex text-sm overflow-y-auto gap-x-5 scrollbar-thin scrollbar-thumb-secondary pb-2'>
             {tags.map(t => (
