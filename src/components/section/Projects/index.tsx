@@ -11,7 +11,6 @@ import { useProjectFilter } from '@/stores/data'
 interface Props { }
 
 const Projects = (props: Props) => {
-  // const { projects } = useDataStore().data
   const { filteredProjects: projects, FILTER_TAG, currentFilter, switchFilter } = useProjectFilter()
   return (
     <>
@@ -46,13 +45,13 @@ export default Projects
 interface ProjectCardProps {
   name: string
   description: string
-  img?: string
+  imgUrl?: string
   url: string
   tags: string[]
   categories?: string[]
 }
 
-function ProjectCard({ name, description, img, url, tags }: ProjectCardProps) {
+function ProjectCard({ name, description, imgUrl, url, tags }: ProjectCardProps) {
   return (
     <div className={style.card}>
       <div className='bg-secondary-background flex flex-col md:w-[360px] w-full'>
@@ -63,8 +62,8 @@ function ProjectCard({ name, description, img, url, tags }: ProjectCardProps) {
             </Link>
           </div>
           {
-            img
-              ? <img className='w-full h-full object-cover' src={img} alt={'{name} image'} />
+            imgUrl
+              ? <img className='w-full h-full object-cover' src={imgUrl} alt={'{name} image'} />
               : <div className='bg-primary/50 w-full h-full'></div>
           }
         </div>

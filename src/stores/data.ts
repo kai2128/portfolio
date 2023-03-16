@@ -14,7 +14,7 @@ interface AppData {
 const dataStore = map<AppData>()
 
 // project filter
-const FILTER_TAG = <const>['all', 'web', 'mobile', 'game', 'dm']
+const FILTER_TAG = <const>['all', 'web', 'mobile', 'game']
 const currentFilter = atom<typeof FILTER_TAG[number]>(FILTER_TAG[0])
 export function useDataStore(data?: AppData) {
   useEffect(() => {
