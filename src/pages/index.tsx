@@ -17,7 +17,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const queryClient = new QueryClient()
   await queryClient.prefetchQuery({
     queryKey: ['comments'],
-    queryFn: () => gqlClient.request(GET_COMMENTS, { first: 10, after: null }),
+    queryFn: () => gqlClient.request(GET_COMMENTS, { first: 30, after: null }),
   })
 
   const about = await gqlClient.request(GET_ABOUT)
@@ -54,7 +54,7 @@ export default function Home({ about, skills, projects, contact }: Props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className='w-screen h-screen overflow-y-auto overflow-x-hidden bg-gradient scrollbar-thin scrollbar-thumb-primary/80 scrollbar-track-background/70'>
+      <main className='w-screen h-screen overflow-y-auto overflow-x-hidden bg-gradient scrollbar-thin scrollbar-thumb-primary/80 scrollbar-track-background/70 snap-mandatory snap-y'>
         <header>
           <Navbar></Navbar>
         </header>

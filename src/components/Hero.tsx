@@ -9,8 +9,8 @@ const Hero = (props: Props) => {
     document.getElementById('section')?.scrollIntoView({ block: 'end', inline: 'end', behavior: 'smooth' })
   }
   return (
-    <section className='w-screen h-screen relative'>
-      <div className='text-background'>portfolio</div>
+    <section className='w-screen h-screen relative snap-center'>
+      <div className='text-background-deco'>portfolio</div>
       <div className='flex justify-center items-center h-full relative z-10 flex-col max-w-[1100px] mx-auto'>
         <div className='text-4xl md:text-5xl tracking-wider uppercase font-extralight lg:self-start absolute top-36 md:top-44'>
           <div className='hero-title'>kai2128 portfolio</div>

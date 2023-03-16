@@ -30,7 +30,7 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
   }, [])
 
   return (
-    <section id='section' className='relative h-screen w-screen flex items-center justify-center md:px-52 z-10'>
+    <section id='section' className='relative h-screen w-screen flex items-center justify-center md:px-52 z-10 snap-center'>
       <DesktopNavbar></DesktopNavbar>
       <SwitchTransition>
         <CSSTransition key={sectionTitle} nodeRef={bodyRef} classNames='expand' addEndListener={(done) => { bodyRef.current?.addEventListener('transitionend', done, false) }}>
@@ -52,7 +52,7 @@ const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
       </SwitchTransition>
       <SwitchTransition>
         <CSSTransition key={sectionTitle} nodeRef={bgTextRef} classNames='fade' addEndListener={(done) => { bgTextRef.current?.addEventListener('transitionend', done, false) }}>
-          <div className='text-background' ref={bgTextRef}>{sectionTitle}</div>
+          <div className='text-background-deco' ref={bgTextRef}>{sectionTitle}</div>
         </CSSTransition>
       </SwitchTransition>
       <div className='bg-dotted h-64 w-64 absolute bottom-10 right-5'></div>

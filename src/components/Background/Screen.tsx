@@ -19,13 +19,13 @@ const Screen = (props: Props) => {
       'o(>< )o',
       '(o_O) !',
       '(x_x)',
-      'w(°o°)w',
+      'w(°-°)w',
       '(O_O;)',
       '(°ロ°) !',
     ],
     loop: true,
-    delaySpeed: 2500,
-    typeSpeed: 500,
+    delaySpeed: 2000,
+    typeSpeed: 250,
   })
   return (
     <>

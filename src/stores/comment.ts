@@ -1,5 +1,4 @@
-import { useInfiniteQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { useStore } from '@nanostores/react'
+import { useInfiniteQuery, useMutation, useQuery, useQueryClient } from '@tanstack/react-query'
 import { persistentMap } from '@nanostores/persistent'
 import type { CreateCommentMutation } from './../gql/graphql'
 
@@ -26,8 +25,16 @@ export function useCommentsStore() {
     formInputs,
     useCommentsQuery: () => useInfiniteQuery({
       queryKey: ['comments'],
-      queryFn: async ({ pageParam = null }) => gqlClient.request(GET_COMMENTS, { first: 10, after: pageParam }),
+      queryFn: async ({ pageParam = null }) => gqlClient.request(GET_COMMENTS, { first: 30, after: pageParam }),
       getNextPageParam: (lastPage, pages) => lastPage.commentsConnection.pageInfo.endCursor,
+      staleTime: 300000,
+      cacheTime: 300000,
+    }),
+    usePageViewQuery: () => useQuery({
+      queryKey: ['ga'],
+      queryFn: async () => fetch('./api/ga').then(res => res.json()),
+      staleTime: 300000,
+      cacheTime: 300000,
     }),
     useCreateCommentMutation: () => useMutation(async (data: Inputs): Promise<CreateCommentMutation> => {
       return fetch('/api/comment/create', {

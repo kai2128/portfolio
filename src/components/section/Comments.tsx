@@ -14,7 +14,7 @@ interface Inputs {
 }
 
 const Comments = (props: Props) => {
-  const { formInputs, useCommentsQuery, useCreateCommentMutation, presistForm } = useCommentsStore()
+  const { formInputs, useCommentsQuery, useCreateCommentMutation, presistForm, usePageViewQuery } = useCommentsStore()
   const { register, handleSubmit, reset, formState: { errors }, watch } = useForm<Inputs>({
     values: {
       ...formInputs.get(),
@@ -55,8 +55,16 @@ const Comments = (props: Props) => {
       observer.disconnect()
     }
   }, [hasNextPage])
+
+  const { data: pageView } = usePageViewQuery()
   return (
     <div>
+      <div className='absolute right-0 top-0'>
+        <div className='flex items-center mr-7 mt-1 gap-x-2'>
+          Total page views
+          <div className='bg-primary text-background px-2 text-left'>{pageView}</div>
+        </div>
+      </div>
       <form aria-disabled={createCommentMutation.isLoading} className='flex flex-col space-y-2 mx-auto max-w-[800px] border border-l-8 border-l-primary p-4' onSubmit={handleSubmit(onSubmit, onError)}>
         <label className={clsx(errors.comment && 'error')}>
           <span>Comment*</span>
