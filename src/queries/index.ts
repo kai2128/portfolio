@@ -22,7 +22,7 @@ export const GET_CONTACT = graphql(`
 
 export const GET_PROJECT = graphql(`
   query ProjectQuery {
-    projects {
+    projects(orderBy: date_DESC) {
       id
       imgUrl
       name

@@ -26,7 +26,7 @@ const CommentsList = (props: Props) => {
   }, [hasNextPage])
   return (
     <div className='flex flex-col gap-y-2 border-l-2 border-l-primary py-2 pl-1 relative'>
-      {(data?.pages !== undefined && data.pages.length !== 0)
+      {(data?.pages !== undefined && data.pages[0].commentsConnection.edges.length !== 0)
         ? data?.pages.map(page => (
           page.commentsConnection.edges.map((c, i) => (
             <CommentItem {...c.node} key={c.node.id}></CommentItem>

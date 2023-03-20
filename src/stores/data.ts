@@ -35,9 +35,9 @@ export function useProjectFilter() {
     },
     filteredProjects: useStore(computed(dataStore, () => {
       const projects = dataStore.get().projects
-      projects.forEach(p => {
-        p.nodeRef = createRef(null)
-      })
+      // projects.forEach(p => {
+      //   p.nodeRef = createRef(null)
+      // })
       if (currentFilter.get() === 'all')
         return projects
 
