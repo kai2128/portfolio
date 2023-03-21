@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { BetaAnalyticsDataClient } from '@google-analytics/data'
-
+// https://github.com/arafat4693/portfolio/blob/main/pages/api/analytics/traffics.ts
 // 👇 Setting PropertyId
 const propertyId = process.env.NEXT_PUBLIC_GA_PROPERTY_ID
 
