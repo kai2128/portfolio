@@ -31,7 +31,6 @@ My porfolio created using Next.js, Hygraph, deployed on Vercel. Google analytics
 ### Styling
 - [TailwindCSS](https://tailwindcss.com/)
 - [Sass](https://sass-lang.com/)
-- 
 
 ### Others
 - [React hook form](https://react-hook-form.com/)
