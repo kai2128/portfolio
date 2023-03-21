@@ -1,5 +1,7 @@
 ## Overview
-<img src="https://user-images.githubusercontent.com/78791519/226690744-ee30ad84-808f-4ef6-badc-22c4365bfeb5.png" width="300" />
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/78791519/226690744-ee30ad84-808f-4ef6-badc-22c4365bfeb5.png" width="300" />
+</p>
 My porfolio created using Next.js, Hygraph, deployed on Vercel. Google analytics is used to collect traffic information.
 
 ## Libraries used
