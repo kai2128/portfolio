@@ -33,7 +33,7 @@ const Screen = (props: Props) => {
           <boxGeometry ></boxGeometry>
           <meshNormalMaterial attach="material" wireframe />
         </mesh>
-      <Text font='http://fonts.gstatic.com/s/dotgothic16/v15/v6-QGYjBJFKgyw5nSoDAGH7M6Xk.woff'>
+      <Text font='https://fonts.gstatic.com/s/dotgothic16/v15/v6-QGYjBJFKgyw5nSoDAGH7M6Xk.woff'>
         {text}
       </Text>
     </>

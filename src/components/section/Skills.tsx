@@ -14,7 +14,7 @@ const Skills = (props: Props) => {
       </div>
 
       <div className='section-subheading'>Web development</div>
-      <div className='section-body flex gap-x-10 flex-wrap flex-col md:flex-row'>
+      <div className='section-body flex gap-x-10 flex-wrap flex-col md:flex-row gap-y-2'>
         <div>
           <div className='section-subheading2'>
             Frontend
@@ -77,7 +77,7 @@ interface SkillData {
 }
 function SkillCards(data: SkillData) {
   return (
-    <div className='flex flex-wrap gap-x-5'>
+    <div className='flex flex-wrap gap-x-5 gap-y-2'>
       {
         data.data?.map(s => (
           <div key={s.name} className="flex items-center justify-end gap-x-1 flex-col">

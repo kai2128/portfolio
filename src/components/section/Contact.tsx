@@ -26,7 +26,7 @@ const Contact = (props: Props) => {
 
       <div className='section-body'>
         <div className='w-full h-[250px]'>
-          <iframe src={contact.googleMapUrl} height={'100%'} width={'100%'} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src={contact.googleMapUrl || ''} height={'100%'} width={'100%'} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <div className='grid gap-x-2 md:gap-x-8 mt-2 md:w-[300px] mx-auto'>
           <div className='flex justify-between'>

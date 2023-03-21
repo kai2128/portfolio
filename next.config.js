@@ -7,6 +7,10 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  swcMinify: true,
+  images: {
+    domains: ['user-images.githubusercontent.com', 'raw.githubusercontent.com', 'github.com'],
+  },
 }
 
 module.exports = nextConfig

@@ -4,6 +4,7 @@ import remarkGfm from 'remark-gfm'
 import ReactMarkdown from 'react-markdown'
 import Link from 'next/link'
 
+import Image from 'next/image'
 import style from './style.module.scss'
 
 interface ProjectCardProps {
@@ -27,7 +28,7 @@ function ProjectCard({ name, description, imgUrl, url, tags }: ProjectCardProps)
           </div>
           {
             imgUrl
-              ? <img className='w-full h-full object-cover' src={imgUrl} alt={'{name} image'} />
+              ? <Image className='w-full h-full object-cover' src={imgUrl} alt={'{name} image'} fill />
               : <div className='bg-primary/50 w-full h-full'></div>
           }
         </div>

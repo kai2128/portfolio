@@ -36,6 +36,8 @@ export type About = Node & {
   createdBy?: Maybe<User>;
   /** Get the document in other stages */
   documentInStages: Array<About>;
+  education?: Maybe<Scalars['String']>;
+  experience?: Maybe<Scalars['String']>;
   /** List of About versions */
   history: Array<Version>;
   /** The unique identifier */
@@ -126,6 +128,8 @@ export type AboutConnection = {
 
 export type AboutCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
   languages?: InputMaybe<Array<Scalars['String']>>;
   overview?: InputMaybe<Scalars['String']>;
   services?: InputMaybe<Array<Scalars['String']>>;
@@ -184,6 +188,44 @@ export type AboutManyWhereInput = {
   documentInStages_every?: InputMaybe<AboutWhereStageInput>;
   documentInStages_none?: InputMaybe<AboutWhereStageInput>;
   documentInStages_some?: InputMaybe<AboutWhereStageInput>;
+  education?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  education_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  education_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  education_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  education_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  education_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  education_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  education_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  education_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  education_starts_with?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  experience_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  experience_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  experience_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  experience_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  experience_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  experience_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  experience_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  experience_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  experience_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -282,6 +324,10 @@ export type AboutManyWhereInput = {
 export enum AboutOrderByInput {
   CreatedAtAsc = 'createdAt_ASC',
   CreatedAtDesc = 'createdAt_DESC',
+  EducationAsc = 'education_ASC',
+  EducationDesc = 'education_DESC',
+  ExperienceAsc = 'experience_ASC',
+  ExperienceDesc = 'experience_DESC',
   IdAsc = 'id_ASC',
   IdDesc = 'id_DESC',
   LanguagesAsc = 'languages_ASC',
@@ -297,6 +343,8 @@ export enum AboutOrderByInput {
 }
 
 export type AboutUpdateInput = {
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
   languages?: InputMaybe<Array<Scalars['String']>>;
   overview?: InputMaybe<Scalars['String']>;
   services?: InputMaybe<Array<Scalars['String']>>;
@@ -320,6 +368,8 @@ export type AboutUpdateManyInlineInput = {
 };
 
 export type AboutUpdateManyInput = {
+  education?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
   languages?: InputMaybe<Array<Scalars['String']>>;
   overview?: InputMaybe<Scalars['String']>;
   services?: InputMaybe<Array<Scalars['String']>>;
@@ -403,6 +453,44 @@ export type AboutWhereInput = {
   documentInStages_every?: InputMaybe<AboutWhereStageInput>;
   documentInStages_none?: InputMaybe<AboutWhereStageInput>;
   documentInStages_some?: InputMaybe<AboutWhereStageInput>;
+  education?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  education_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  education_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  education_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  education_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  education_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  education_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  education_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  education_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  education_starts_with?: InputMaybe<Scalars['String']>;
+  experience?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  experience_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  experience_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  experience_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  experience_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  experience_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  experience_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  experience_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  experience_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  experience_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -10351,7 +10439,7 @@ export enum _SystemDateTimeFieldVariation {
 export type AboutQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type AboutQueryQuery = { __typename?: 'Query', abouts: Array<{ __typename?: 'About', languages: Array<string>, overview?: string | null, services: Array<string> }> };
+export type AboutQueryQuery = { __typename?: 'Query', abouts: Array<{ __typename?: 'About', languages: Array<string>, overview?: string | null, services: Array<string>, experience?: string | null, education?: string | null }> };
 
 export type ContactQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -10421,7 +10509,7 @@ export type PublishCommentMutationVariables = Exact<{
 export type PublishCommentMutation = { __typename?: 'Mutation', publishComment?: { __typename?: 'Comment', id: string, name?: string | null, comment: string, createdAt: any } | null };
 
 export const TFragmentDoc = {"kind":"Document","definitions":[{"kind":"FragmentDefinition","name":{"kind":"Name","value":"T"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Tech"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"iconUrl"}}]}}]} as unknown as DocumentNode<TFragment, unknown>;
-export const AboutQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"abouts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"languages"}},{"kind":"Field","name":{"kind":"Name","value":"overview"}},{"kind":"Field","name":{"kind":"Name","value":"services"}}]}}]}}]} as unknown as DocumentNode<AboutQueryQuery, AboutQueryQueryVariables>;
+export const AboutQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"AboutQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"abouts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"languages"}},{"kind":"Field","name":{"kind":"Name","value":"overview"}},{"kind":"Field","name":{"kind":"Name","value":"services"}},{"kind":"Field","name":{"kind":"Name","value":"experience"}},{"kind":"Field","name":{"kind":"Name","value":"education"}}]}}]}}]} as unknown as DocumentNode<AboutQueryQuery, AboutQueryQueryVariables>;
 export const ContactQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ContactQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"contacts"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"adress"}},{"kind":"Field","name":{"kind":"Name","value":"googleMapUrl"}},{"kind":"Field","name":{"kind":"Name","value":"email"}}]}}]}}]} as unknown as DocumentNode<ContactQueryQuery, ContactQueryQueryVariables>;
 export const ProjectQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"ProjectQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"projects"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"orderBy"},"value":{"kind":"EnumValue","value":"date_DESC"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"imgUrl"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"tags"}},{"kind":"Field","name":{"kind":"Name","value":"publishedAt"}},{"kind":"Field","name":{"kind":"Name","value":"url"}}]}}]}}]} as unknown as DocumentNode<ProjectQueryQuery, ProjectQueryQueryVariables>;
 export const SkillQueryDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"SkillQuery"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"skills"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"first"},"value":{"kind":"IntValue","value":"1"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"programmingLanguage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"frontend"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"backend"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"libraries"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"game"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"mobile"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"database"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"cicd"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}},{"kind":"Field","name":{"kind":"Name","value":"tools"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"FragmentSpread","name":{"kind":"Name","value":"T"}}]}}]}}]}},{"kind":"FragmentDefinition","name":{"kind":"Name","value":"T"},"typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"Tech"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"iconUrl"}}]}}]} as unknown as DocumentNode<SkillQueryQuery, SkillQueryQueryVariables>;

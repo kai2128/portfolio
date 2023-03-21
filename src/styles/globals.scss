@@ -162,3 +162,10 @@ label{
     fill: rgb(var(--color-primary));
   }
 }
+
+.prose :where(blockquote p:first-of-type):not(:where([class~="not-prose"] *)) {
+  font-style: normal;
+  &:before, &:after{
+    content: '';
+  }
+}

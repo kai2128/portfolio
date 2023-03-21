@@ -13,7 +13,25 @@ const About = (props: Props) => {
       <div className='section-body'>
         <article className="prose prose-p:text-lg prose-p:leading-[1.5] mx-auto">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>
-            {about?.overview}
+            {about?.overview || ''}
+          </ReactMarkdown>
+        </article>
+      </div>
+
+      <div className='section-subheading'>Education</div>
+      <div className='section-body -mt-3'>
+        <article className="prose prose-blockquote:bg-secondary-background/40 prose-p:leading-[1.5] mx-auto prose-h5:-my-5  prose-h5:underline">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {about?.education || ''}
+          </ReactMarkdown>
+        </article>
+      </div>
+
+      <div className='section-subheading'>Experience</div>
+      <div className='section-body -mt-3'>
+        <article className="prose prose-blockquote:bg-secondary-background/40 prose-p:leading-[1.5] mx-auto prose-h5:-my-5 prose-h5:underline">
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+            {about?.experience || ''}
           </ReactMarkdown>
         </article>
       </div>
@@ -21,8 +39,8 @@ const About = (props: Props) => {
       <div className='section-subheading'>Languages</div>
       <div className='section-body'>
         {
-          about?.languages.map(v => (
-            <span key={v}>{v} &nbsp;</span>
+          about?.languages.map((v, i) => (
+            <span key={v}>{v} {i !== about?.languages.length - 1 && '| ' } </span>
           ))
         }
       </div>

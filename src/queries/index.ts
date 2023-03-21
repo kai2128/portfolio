@@ -6,6 +6,8 @@ export const GET_ABOUT = graphql(`
         languages
         overview
         services
+        experience
+        education
       }
     }
 `)

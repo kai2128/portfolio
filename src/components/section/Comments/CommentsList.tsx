@@ -17,7 +17,7 @@ const CommentsList = (props: Props) => {
         fetchNextPage()
       }
       if (isIntersecting && !hasNextPage)
-        notify('You have reached the end')
+        notify('You have reached the end of comments')
     })
     observer.observe(lastCommentRef.current!)
     return () => {

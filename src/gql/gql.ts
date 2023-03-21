@@ -13,7 +13,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  * Therefore it is highly recommended to use the babel or swc plugin for production.
  */
 const documents = {
-    "\n    query AboutQuery {\n      abouts(first: 1) {\n        languages\n        overview\n        services\n      }\n    }\n": types.AboutQueryDocument,
+    "\n    query AboutQuery {\n      abouts(first: 1) {\n        languages\n        overview\n        services\n        experience\n        education\n      }\n    }\n": types.AboutQueryDocument,
     "\n  query ContactQuery {\n    contacts(first: 1){\n      adress\n      googleMapUrl\n      email\n    }\n  }\n": types.ContactQueryDocument,
     "\n  query ProjectQuery {\n    projects(orderBy: date_DESC) {\n      id\n      imgUrl\n      name\n      description\n      tags\n      publishedAt\n      url\n    }\n  }\n": types.ProjectQueryDocument,
     "\nquery SkillQuery {\n  skills(first: 1) {\n    programmingLanguage {\n      ...T\n    }\n    frontend {\n      ...T\n    }\n    backend {\n      ...T\n    }\n    libraries {\n      ...T\n    }\n    game {\n      ...T\n    }\n    mobile {\n      ...T\n    }\n    database {\n      ...T\n    }\n    cicd {\n      ...T\n    }\n    tools {\n      ...T\n    }\n  }\n}\n\nfragment T on Tech {\n  name\n  iconUrl\n}\n": types.SkillQueryDocument,
@@ -39,7 +39,7 @@ export function graphql(source: string): unknown;
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n    query AboutQuery {\n      abouts(first: 1) {\n        languages\n        overview\n        services\n      }\n    }\n"): (typeof documents)["\n    query AboutQuery {\n      abouts(first: 1) {\n        languages\n        overview\n        services\n      }\n    }\n"];
+export function graphql(source: "\n    query AboutQuery {\n      abouts(first: 1) {\n        languages\n        overview\n        services\n        experience\n        education\n      }\n    }\n"): (typeof documents)["\n    query AboutQuery {\n      abouts(first: 1) {\n        languages\n        overview\n        services\n        experience\n        education\n      }\n    }\n"];
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

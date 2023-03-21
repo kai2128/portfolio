@@ -3,11 +3,13 @@ import React from 'react'
 import { TbTriangleInvertedFilled } from 'react-icons/tb'
 import { AiFillGithub } from 'react-icons/ai'
 import Link from 'next/link'
-interface Props {}
+import { useDataStore } from '@/stores/data'
+interface Props { }
 const Hero = (props: Props) => {
   function scrollToSection() {
     document.getElementById('section')?.scrollIntoView({ block: 'end', inline: 'end', behavior: 'smooth' })
   }
+  const { data: { about } } = useDataStore()
   return (
     <section className='w-screen h-screen relative snap-center'>
       <div className='text-background-deco'>portfolio</div>
@@ -23,15 +25,15 @@ const Hero = (props: Props) => {
         </div>
 
         <ul className='list-square text-lg bottom-44 md:text-2xl font-light md:block md:self-end md:space-y-2 md:bottom-60 absolute'>
-          <li>Web Developer</li>
-          <li>Software Engineer</li>
-          <li>Programmer</li>
+          {about?.services.map(s => (
+            <li key={s}>{s}</li>
+          ))}
         </ul>
       </div>
       <button className='absolute bottom-14 md:bottom-28 p-10 w-full flex justify-center items-center z-30' onClick={() => scrollToSection()}>
         <TbTriangleInvertedFilled className='text-xl scale-x-150 animate-bounce'></TbTriangleInvertedFilled>
       </button>
-    </section>
+    </section >
   )
 }
 

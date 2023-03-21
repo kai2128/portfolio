@@ -20,6 +20,7 @@ specifiers:
   '@types/three': ^0.149.0
   autoprefixer: ^10.4.13
   clsx: ^1.2.1
+  default-passive-events: ^2.0.0
   eslint: 8.35.0
   eslint-config-next: 13.2.3
   eslint-plugin-react: ^7.32.2
@@ -56,6 +57,7 @@ dependencies:
   '@tanstack/react-query': 4.26.1_biqbaboplfbrettd7655fr4n2y
   '@types/react-transition-group': 4.4.5
   clsx: 1.2.1
+  default-passive-events: 2.0.0
   graphql: 16.6.0
   graphql-request: 5.2.0_graphql@16.6.0
   gsap: 3.11.4
@@ -3334,6 +3336,10 @@ packages:
 
   /deep-is/0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
+
+  /default-passive-events/2.0.0:
+    resolution: {integrity: sha512-eMtt76GpDVngZQ3ocgvRcNCklUMwID1PaNbCNxfpDXuiOXttSh0HzBbda1HU9SIUsDc02vb7g9+3I5tlqe/qMQ==}
+    dev: false
 
   /defaults/1.0.4:
     resolution: {integrity: sha512-eFuaLoy/Rxalv2kr+lqMlUnrDWV+3j4pljOIJgLIhI058IQfWJ7vXhyEIHu+HtC738klGALYxOKDO0bQP3tg8A==}
