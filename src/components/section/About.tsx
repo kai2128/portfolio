@@ -12,7 +12,7 @@ const About = (props: Props) => {
       <div className='section-subheading'>Overview</div>
       <div className='section-body'>
         <article className="prose prose-p:text-lg prose-p:leading-[1.5] mx-auto">
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown remarkPlugins={[remarkGfm]} linkTarget={'_blank'}>
             {about?.overview || ''}
           </ReactMarkdown>
         </article>
