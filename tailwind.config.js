@@ -24,6 +24,16 @@ module.exports = {
       listStyleType: {
         square: 'square',
       },
+      keyframes: {
+        flash: {
+          '0%': { opacity: 0.5 },
+          '50%': { opacity: 1 },
+          '100%': { opacity: 0.5 },
+        },
+      },
+      animation: {
+        flash: 'flash 1s infinite ease',
+      },
     },
   },
   plugins: [require('tailwind-scrollbar'), require('@tailwindcss/typography')],

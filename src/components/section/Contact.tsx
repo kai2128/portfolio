@@ -28,17 +28,14 @@ const Contact = (props: Props) => {
         <div className='w-full h-[250px]'>
           <iframe src={contact.googleMapUrl || ''} height={'100%'} width={'100%'} style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
         </div>
-        <div className='grid gap-x-2 md:gap-x-8 mt-2 md:w-[300px] mx-auto'>
-          <div className='flex justify-between'>
-            <span className='text-primary/70 text-base'>Location</span>
-            <div className='flex-1 h-[85%] mx-1 border-b-2 border-b-primary border-dotted'></div>
-            <span>{contact.adress}</span>
-          </div>
-          <div className='flex justify-between'>
-            <span className='text-primary/70 text-base'>Email</span>
-            <div className='flex-1 h-[85%] mx-1 border-b-2 border-b-primary border-dotted'></div>
-            <span>{contact.email}</span>
-          </div>
+        <div className='grid mt-2 grid-cols-[100px_7px_1fr]'>
+          <span className='text-primary/70 text-base uppercase'>Location</span>
+          <span className='text-primary/70'>:</span>
+          <span>{contact.adress}</span>
+
+          <span className='text-primary/70 text-base uppercase'>Email</span>
+          <span className='text-primary/70'>:</span>
+          <span>{contact.email}</span>
         </div>
       </div>
 

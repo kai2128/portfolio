@@ -51,9 +51,9 @@ function CommentItem({ name, comment, createdAt }: CommentItemData) {
   const date = new Date(createdAt)
   return (
     <div className='w-full border p-2 bg-background'>
-      <div className='flex gap-5 items-center'>
-        <div className='text-2xl text-bold'>
-          {name}
+      <div className='flex gap-5 items-end'>
+        <div className='text-xl text-bold'>
+          {name || 'Anon.'}
         </div>
         <div className='text-primary/70'>
           {date.toLocaleTimeString()} | {date.toDateString()}
