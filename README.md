@@ -42,3 +42,8 @@ My porfolio created using Next.js, Hygraph, deployed on Vercel. Google analytics
   -  https://dev.to/arafat4693/how-i-built-my-fullstack-and-typesafe-portfolio-website-26ia
 - https://j471n.in/
 - https://github.com/Kaidesuyo/Hydrogen-Music
+
+- [Create a Room Portfolio with Three.js and Blender | [Awwwards' Sites Recreated](https://www.youtube.com/watch?v=rxTb9ys834w)
+- [Let's build a Modern Portfolio with NEXT.JS (Framer Motion, Tailwind CSS, Sanity.io, React) | 2023](https://www.youtube.com/watch?v=urgi2iz9P6U)
+- [Build and Deploy an Amazing 3D Web Developer Portfolio in React JS | Beginner Three.js Tutorial](https://www.youtube.com/watch?v=0fYi8SGA20k)
+- [How to reproduce MagicaVoxel's soft shadows on WebGL by baking with Blender 2.8+](https://www.youtube.com/watch?v=vHHihuW0_4M)
