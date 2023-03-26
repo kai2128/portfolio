@@ -62,7 +62,6 @@ export default function Home({ about, skills, projects, contact }: Props) {
         <Hero></Hero>
 
         <SectionLayout>
-          {/* {about.overview} */}
           <CurrentSection></CurrentSection>
         </SectionLayout>
 
@@ -71,30 +70,6 @@ export default function Home({ about, skills, projects, contact }: Props) {
         <LoadingIndicator></LoadingIndicator>
 
         <Toast></Toast>
-
-        {/* <section>
-          About me
-        </section>
-
-        <section>
-          Experience
-        </section>
-
-        <section>
-          Skills
-        </section>
-
-        <section>
-          Projects
-        </section>
-
-        <section>
-          Contact Me
-        </section>
-
-        <section>
-          Guest Message board
-        </section> */}
 
         <footer></footer>
       </main>

@@ -1,6 +1,6 @@
 import { useStore } from '@nanostores/react'
 import { atom, computed, map } from 'nanostores'
-import { createRef, useEffect } from 'react'
+import { useEffect } from 'react'
 import type { AboutQueryQuery, ContactQueryQuery, ProjectQueryQuery, SkillQueryQuery } from '@/gql/graphql'
 
 interface AppData {
@@ -35,9 +35,6 @@ export function useProjectFilter() {
     },
     filteredProjects: useStore(computed(dataStore, () => {
       const projects = dataStore.get().projects
-      // projects.forEach(p => {
-      //   p.nodeRef = createRef(null)
-      // })
       if (currentFilter.get() === 'all')
         return projects
 

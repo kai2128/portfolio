@@ -6,7 +6,15 @@ import { useState } from 'react'
 import 'default-passive-events'
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient())
+  const [queryClient] = useState(() => new QueryClient({
+    defaultOptions: {
+      queries: {
+        refetchOnWindowFocus: false,
+        staleTime: 1000 * 60 * 60 * 24,
+        retry: 1,
+      },
+    },
+  }))
   return (
     <QueryClientProvider client={queryClient}>
       <Script

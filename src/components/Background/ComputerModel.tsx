@@ -14,7 +14,6 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass'
 
 import gsap from 'gsap'
-import { useControls } from 'leva'
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass'
 import { VignetteShader } from 'three/examples/jsm/shaders/VignetteShader'
 import { HorizontalBlurShader } from 'three/examples/jsm/shaders/HorizontalBlurShader'
@@ -46,11 +45,13 @@ export function ComputerModel(props) {
       lerp.current.y.target = rotationY.current * 0.85
     })
   }, [])
-  useFrame(({ clock }) => {
-    mesh.current.rotation.y = lerp.current.y.current
-    mesh.current.rotation.x = lerp.current.x.current
-    lerp.current.x.current = gsap.utils.interpolate(lerp.current.x.current, lerp.current.x.target, 0.2)
-    lerp.current.y.current = gsap.utils.interpolate(lerp.current.y.current, lerp.current.y.target, 0.2)
+  useFrame(() => {
+    if (mesh.current) {
+      mesh.current.rotation.y = lerp.current.y.current
+      mesh.current.rotation.x = lerp.current.x.current
+      lerp.current.x.current = gsap.utils.interpolate(lerp.current.x.current, lerp.current.x.target, 0.2)
+      lerp.current.y.current = gsap.utils.interpolate(lerp.current.y.current, lerp.current.y.target, 0.2)
+    }
   })
 
   const cam = useRef()

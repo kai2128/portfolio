@@ -27,14 +27,10 @@ export function useCommentsStore() {
       queryKey: ['comments'],
       queryFn: async ({ pageParam = null }) => gqlClient.request(GET_COMMENTS, { first: 30, after: pageParam }),
       getNextPageParam: (lastPage, pages) => lastPage.commentsConnection.pageInfo.endCursor,
-      staleTime: 300000,
-      cacheTime: 300000,
     }),
     usePageViewQuery: () => useQuery({
       queryKey: ['ga'],
       queryFn: async () => fetch('./api/ga').then(res => res.json()),
-      staleTime: 300000,
-      cacheTime: 300000,
     }),
     useCreateCommentMutation: () => useMutation(async (data: Inputs): Promise<CreateCommentMutation> => {
       return fetch('/api/comment/create', {

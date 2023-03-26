@@ -6,11 +6,7 @@ import { CSSTransition, SwitchTransition } from 'react-transition-group'
 import DesktopNavbar from '@/components/DesktopNavbar'
 import { useSectionStore } from '@/stores/section'
 
-interface Props {
-  // decoration?: JSX.Element
-}
-
-const SectionLayout: React.FC<PropsWithChildren<Props>> = ({ children }) => {
+const SectionLayout: React.FC<PropsWithChildren> = ({ children }) => {
   const { sectionTitle, triggerEntrance, nextSection, previousSection } = useSectionStore()
   const bgTextRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)

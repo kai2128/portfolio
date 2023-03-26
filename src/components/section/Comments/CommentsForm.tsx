@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import React from 'react'
 import type { SubmitHandler } from 'react-hook-form'
 import { useForm } from 'react-hook-form'
+import PageView from './components/PageView'
 import { useToastStore } from '@/stores/toast'
 import { useCommentsStore } from '@/stores/comment'
-import PageView from './components/PageView'
 
 interface Inputs {
   name?: string

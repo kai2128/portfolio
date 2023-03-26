@@ -9,7 +9,8 @@ interface Props { }
 const Screen = (props: Props) => {
   const mesh = useRef<Mesh>(null)
   useFrame(() => {
-    mesh.current.rotation.y += 0.01
+    if (mesh.current)
+      mesh.current.rotation.y += 0.01
   })
   const [text] = useTypewriter({
     words: [

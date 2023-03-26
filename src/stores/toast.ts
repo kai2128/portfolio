@@ -17,23 +17,6 @@ const toast = map<ToastState>({
   triggerExit: false,
 })
 
-// function toggleActive(nextState: boolean) {
-//   if (nextState === toast.get().isActive)
-//     return
-//   if (nextState === true) {
-//     toast.setKey('triggerEnter', true)
-//     toast.setKey('isActive', true)
-//   }
-//   else {
-//     toast.setKey('triggerExit', true)
-//     setTimeout(() => {
-//       toast.setKey('triggerEnter', false)
-//       toast.setKey('triggerExit', false)
-//     }, 1000)
-//     toast.setKey('isActive', false)
-//   }
-// }
-
 export function useToastStore() {
   return {
     toast: useStore(toast),
