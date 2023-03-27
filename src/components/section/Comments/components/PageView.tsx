@@ -13,7 +13,9 @@ const PageView = (props: Props) => {
       <div className='flex items-center mr-2 md:mr-7 mt-1 gap-x-1 md:gap-x-2 relative'>
         <div className='flex items-center gap-x-1'>
           Total page views
-          <div className={clsx('bg-primary text-background px-2 text-left  min-w-10', pageViewLoading && 'animate-flash bg-secondary-background h-full')}>{pageView}</div>
+          <div className={clsx('bg-primary text-background px-2 text-left', pageViewLoading && 'animate-flash bg-secondary-background h-5 w-10')}>
+            {pageView}
+          </div>
         </div>
       </div>
     </div>
