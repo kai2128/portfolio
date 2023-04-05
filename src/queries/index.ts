@@ -82,6 +82,11 @@ export const GET_COMMENTS = graphql(`
           after: $after
           orderBy: createdAt_DESC
           stage: DRAFT
+          where: {
+            documentInStages_every: {
+              stage: DRAFT
+            }
+          }
         ) {
           edges {
             cursor
