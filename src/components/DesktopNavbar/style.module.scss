@@ -1,5 +1,5 @@
 .nav {
-  @apply absolute left-20 top-1/2 -translate-y-1/2;
+  @apply absolute left-8 scale-90 xl:scale-100 xl:left-20 top-1/2 -translate-y-1/2;
 
   .navbar-desktop {
     @apply hidden md:flex flex-col gap-2;

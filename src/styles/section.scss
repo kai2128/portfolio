@@ -78,7 +78,7 @@
 }
 
 .section-navigation{
-    @apply absolute flex justify-center items-center text-5xl left-6 md:left-48 bottom-16;
+    @apply absolute flex justify-center items-center text-5xl left-6 md:left-48 bottom-16 lg:bottom-8 xl:bottom-16;
 
     >button{
       @apply p-1 cursor-pointer scale-y-75 bg-background/90;
@@ -239,10 +239,8 @@
     }
   }
 }
-
 .expand-exit {
-  height: calc(100% - 300px);
-
+  @apply h-[calc(100%-250px)] lg:h-[calc(100%-200px)] xl:h-[calc(100%-300px)];
   .section-container {
     @apply p-0;
   }
@@ -255,8 +253,7 @@
 }
 
 .expand-enter-active {
-  height: calc(100% - 300px);
-
+  @apply h-[calc(100%-250px)] lg:h-[calc(100%-200px)] xl:h-[calc(100%-300px)];
   .section-header {
     .cover {
       width: 100%;
@@ -265,15 +262,14 @@
 }
 
 .expand-enter-done {
-  height: calc(100% - 300px);
-
+  @apply h-[calc(100%-250px)] lg:h-[calc(100%-200px)] xl:h-[calc(100%-300px)];
   .section-container {
     animation: add-padding 0.3s forwards;
   }
 }
 
 .expand-exit-done {
-  height: calc(100% - 300px);
+  @apply h-[calc(100%-250px)] lg:h-[calc(100%-200px)] xl:h-[calc(100%-300px)];
 }
 
 .expand-exit-active {
