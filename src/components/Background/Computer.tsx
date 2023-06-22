@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import { Preload, Stage } from '@react-three/drei'
+import { Environment, Preload, Stage } from '@react-three/drei'
 import CanvasLoader from '../CanvasLoader'
 import { ComputerModel } from './ComputerModel'
 
@@ -16,9 +16,11 @@ export function Computer() {
         <ambientLight intensity={0.25}></ambientLight>
         <Stage
           intensity={0.5}
+          environment={null!}
           preset={'portrait'}
           shadows
         >
+          <Environment path='/models/' files="venice_sunset_1k.hdr"></Environment>
           <ComputerModel></ComputerModel>
         </Stage>
         {/* <SuspenseTrigger /> */}

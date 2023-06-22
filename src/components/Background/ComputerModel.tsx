@@ -20,6 +20,8 @@ import { HorizontalBlurShader } from 'three/examples/jsm/shaders/HorizontalBlurS
 import { VerticalBlurShader } from 'three/examples/jsm/shaders/VerticalBlurShader'
 import Screen from './Screen'
 
+import { useIsMobile } from '@/hooks/useIsMobile'
+
 export function ComputerModel(props) {
   const { nodes, materials } = useGLTF('./models/computer.glb')
   const mesh = useRef<Mesh>(null)
@@ -37,14 +39,39 @@ export function ComputerModel(props) {
       ease: 0.1,
     },
   })
+
+  const isMobile = useIsMobile()
+  function handleOrientation(event: DeviceOrientationEvent) {
+    if (event.alpha == null || event.beta == null || event.gamma == null)
+      return
+
+    const { beta, gamma, alpha } = event
+    rotationX.current = (beta - 90) / 90
+    rotationY.current = gamma / 90
+    lerp.current.x.target = rotationX.current * 0.95
+    lerp.current.y.target = rotationY.current * 0.95
+  }
+
+  function handleMouseMoveDesktop(event: MouseEvent) {
+    rotationX.current = (event.clientY - window.innerHeight / 2) / window.innerHeight
+    rotationY.current = (event.clientX - window.innerWidth / 2) / window.innerWidth
+    lerp.current.x.target = rotationX.current * 0.05
+    lerp.current.y.target = rotationY.current * 0.85
+  }
+
   useEffect(() => {
-    document.addEventListener('mousemove', (event) => {
-      rotationX.current = (event.clientY - window.innerHeight / 2) / window.innerHeight
-      rotationY.current = (event.clientX - window.innerWidth / 2) / window.innerWidth
-      lerp.current.x.target = rotationX.current * 0.05
-      lerp.current.y.target = rotationY.current * 0.85
-    })
-  }, [])
+    if (isMobile)
+      window.addEventListener('deviceorientation', handleOrientation)
+    else
+      document.addEventListener('mousemove', handleMouseMoveDesktop)
+
+    return () => {
+      if (isMobile)
+        window.removeEventListener('deviceorientation', handleOrientation)
+      else
+        document.removeEventListener('mousemove', handleMouseMoveDesktop)
+    }
+  }, [isMobile])
   useFrame(() => {
     if (mesh.current) {
       mesh.current.rotation.y = lerp.current.y.current
