@@ -147,7 +147,7 @@ label{
 }
 
 .text-background-deco {
-  @apply absolute uppercase tracking-tighter top-0 right-0 -translate-y-1/2 w-full text-right text-[clamp(150px,15vw,15vw)] text-outline font-geometos;
+  @apply absolute uppercase tracking-tighter top-0 right-0 -translate-y-1/2 w-full text-right text-[clamp(150px,15vw,10.5rem)] text-outline font-geometos;
 }
 
 .icon-link{
