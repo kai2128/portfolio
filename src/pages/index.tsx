@@ -10,8 +10,10 @@ import { gqlClient } from '@/utils/grapql-client'
 import { GET_ABOUT, GET_COMMENTS, GET_CONTACT, GET_PROJECT, GET_SKILL } from '@/queries'
 import type { AboutQueryQuery, ContactQueryQuery, ProjectQueryQuery, SkillQueryQuery } from '@/gql/graphql'
 import { useDataStore } from '@/stores/data'
-import LoadingIndicator from '@/components/LoadingIndicator'
 import Toast from '@/components/Toast'
+import dynamic from 'next/dynamic'
+
+const LoadingIndicator = dynamic(() => import('@/components/LoadingIndicator'), { ssr: false })
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const queryClient = new QueryClient()
